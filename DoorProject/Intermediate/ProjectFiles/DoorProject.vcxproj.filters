@@ -29,15 +29,15 @@
     <None Include="..\..\Config\DefaultInput.ini">
       <Filter>Config</Filter>
     </None>
+    <Filter Include="Config\HoloLens">
+      <UniqueIdentifier>{4C8DD267-CDE7-336F-8602-F5F485D22BAB}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\HoloLens\HoloLensEngine.ini">
+      <Filter>Config\HoloLens</Filter>
+    </None>
     <Filter Include="Source\DoorProject">
       <UniqueIdentifier>{D1835744-F93F-3BD5-AD0E-7533C222B178}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\DoorProject\Door.cpp">
-      <Filter>Source\DoorProject</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\DoorProject\Door.h">
-      <Filter>Source\DoorProject</Filter>
-    </ClInclude>
     <None Include="..\..\Source\DoorProject\DoorProject.Build.cs">
       <Filter>Source\DoorProject</Filter>
     </None>
@@ -76,6 +76,18 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\DoorProject\TP_WeaponComponent.h">
       <Filter>Source\DoorProject</Filter>
+    </ClInclude>
+    <Filter Include="Source\DoorProject\Private">
+      <UniqueIdentifier>{D168D49D-D554-36DD-A507-BE99842A2828}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\DoorProject\Private\DoorInteractionComponent.cpp">
+      <Filter>Source\DoorProject\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\DoorProject\Public">
+      <UniqueIdentifier>{69D3199E-56B6-391D-A637-9C41A3B93AC6}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\DoorProject\Public\DoorInteractionComponent.h">
+      <Filter>Source\DoorProject\Public</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
