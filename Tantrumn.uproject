@@ -1,0 +1,22 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{63ADE8E1-42E1-4845-4210-37AA4B6AE0A4}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "Tantrumn",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "ModelingToolsEditorMode",
+			"Enabled": true,
+			"TargetAllowList": [
+				"Editor"
+			]
+		}
+	]
+}
