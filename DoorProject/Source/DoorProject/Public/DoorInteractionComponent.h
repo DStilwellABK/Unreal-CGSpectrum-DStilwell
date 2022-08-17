@@ -12,15 +12,19 @@ class DOORPROJECT_API UDoorInteractionComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
+
+
 public:	
 	// Sets default values for this component's properties
 	UDoorInteractionComponent();
+
 
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
 	FRotator DesiredRotation;
+	FRotator originalRotation;
 	FRotator DeltaRotation;
 	FRotator FinalRotation;
 
@@ -28,5 +32,7 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-		
+	//virtual void SetupDoorInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+
 };

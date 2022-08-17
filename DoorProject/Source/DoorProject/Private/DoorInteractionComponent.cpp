@@ -14,32 +14,30 @@ UDoorInteractionComponent::UDoorInteractionComponent()
 }
 
 
-// Called when the game starts
+// Called when the game starts, our void Start() in terms of unity
 void UDoorInteractionComponent::BeginPlay()
 {
 	Super::BeginPlay();
 	//UE_LOG(LogTemp, Warning, TEXT("Hello"));
-	//FRotator DesiredRotation(0.0f, -90.0f, 0.0f);
-	//GetOwner()->SetActorRotation(DesiredRotation);
+	//originalRotation = GetOwner()->GetActorRotation();
+	
+	//if ()
 	// ...
 	
 }
 
 
-// Called every frame
+
+
+// Called every frame, Our void Update() in terms of Unity
 void UDoorInteractionComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	FRotator CurrentRotation = GetOwner()->GetActorRotation();
-	if (!CurrentRotation.Equals(FinalRotation, 5.0f)) {
-		// Calculate the rotation based on the speed * deltatime.
-		CurrentRotation += DeltaRotation * DeltaTime;
-
-		// Set the objects rotation or transform.rotation = this
-		GetOwner()->SetActorRotation(CurrentRotation);
-	}
-
 	// ...
 }
+
+//void UDoorInteractionComponent::SetupDoorInputComponent(class UInputComponent* PlayerInputComponent) {
+//
+//}
 

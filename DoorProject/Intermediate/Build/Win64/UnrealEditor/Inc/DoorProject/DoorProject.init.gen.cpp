@@ -23,13 +23,13 @@ void EmptyLinkFunctionForGeneratedCodeDoorProject_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x2B08DA43,
-				0xCE3951AC,
+				0x8984CDEA,
+				0x601726D9,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_DoorProject.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_DoorProject.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_DoorProject(Z_Construct_UPackage__Script_DoorProject, TEXT("/Script/DoorProject"), Z_Registration_Info_UPackage__Script_DoorProject, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x2B08DA43, 0xCE3951AC));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_DoorProject(Z_Construct_UPackage__Script_DoorProject, TEXT("/Script/DoorProject"), Z_Registration_Info_UPackage__Script_DoorProject, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x8984CDEA, 0x601726D9));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
