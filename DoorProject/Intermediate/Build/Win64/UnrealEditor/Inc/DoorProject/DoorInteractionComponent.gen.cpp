@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeDoorInteractionComponent() {}
 	DOORPROJECT_API UClass* Z_Construct_UClass_UDoorInteractionComponent();
 	ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
 	UPackage* Z_Construct_UPackage__Script_DoorProject();
+	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FRotator();
 // End Cross Module References
 	void UDoorInteractionComponent::StaticRegisterNativesUDoorInteractionComponent()
 	{
@@ -28,6 +29,29 @@ void EmptyLinkFunctionForGeneratedCodeDoorInteractionComponent() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentRotationTime_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_CurrentRotationTime;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_IsDoorToggable_MetaData[];
+#endif
+		static void NewProp_IsDoorToggable_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsDoorToggable;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_StartDoorOpen_MetaData[];
+#endif
+		static void NewProp_StartDoorOpen_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_StartDoorOpen;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_closeDoorRotation_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_closeDoorRotation;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_openDoorRotation_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_openDoorRotation;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -43,6 +67,58 @@ void EmptyLinkFunctionForGeneratedCodeDoorInteractionComponent() {}
 		{ "ModuleRelativePath", "Public/DoorInteractionComponent.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_CurrentRotationTime_MetaData[] = {
+		{ "Category", "DoorInteractionComponent" },
+		{ "Comment", "//virtual void SetupDoorInputComponent(class UInputComponent* PlayerInputComponent) override;\n" },
+		{ "ModuleRelativePath", "Public/DoorInteractionComponent.h" },
+		{ "ToolTip", "virtual void SetupDoorInputComponent(class UInputComponent* PlayerInputComponent) override;" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_CurrentRotationTime = { "CurrentRotationTime", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UDoorInteractionComponent, CurrentRotationTime), METADATA_PARAMS(Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_CurrentRotationTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_CurrentRotationTime_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_IsDoorToggable_MetaData[] = {
+		{ "Category", "DoorInteractionComponent" },
+		{ "ModuleRelativePath", "Public/DoorInteractionComponent.h" },
+	};
+#endif
+	void Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_IsDoorToggable_SetBit(void* Obj)
+	{
+		((UDoorInteractionComponent*)Obj)->IsDoorToggable = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_IsDoorToggable = { "IsDoorToggable", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UDoorInteractionComponent), &Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_IsDoorToggable_SetBit, METADATA_PARAMS(Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_IsDoorToggable_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_IsDoorToggable_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_StartDoorOpen_MetaData[] = {
+		{ "Category", "DoorInteractionComponent" },
+		{ "ModuleRelativePath", "Public/DoorInteractionComponent.h" },
+	};
+#endif
+	void Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_StartDoorOpen_SetBit(void* Obj)
+	{
+		((UDoorInteractionComponent*)Obj)->StartDoorOpen = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_StartDoorOpen = { "StartDoorOpen", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UDoorInteractionComponent), &Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_StartDoorOpen_SetBit, METADATA_PARAMS(Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_StartDoorOpen_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_StartDoorOpen_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_closeDoorRotation_MetaData[] = {
+		{ "Category", "DoorInteractionComponent" },
+		{ "ModuleRelativePath", "Public/DoorInteractionComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_closeDoorRotation = { "closeDoorRotation", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UDoorInteractionComponent, closeDoorRotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_closeDoorRotation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_closeDoorRotation_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_openDoorRotation_MetaData[] = {
+		{ "Category", "DoorInteractionComponent" },
+		{ "ModuleRelativePath", "Public/DoorInteractionComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_openDoorRotation = { "openDoorRotation", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UDoorInteractionComponent, openDoorRotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_openDoorRotation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_openDoorRotation_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UDoorInteractionComponent_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_CurrentRotationTime,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_IsDoorToggable,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_StartDoorOpen,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_closeDoorRotation,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_openDoorRotation,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UDoorInteractionComponent_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UDoorInteractionComponent>::IsAbstract,
 	};
@@ -52,11 +128,11 @@ void EmptyLinkFunctionForGeneratedCodeDoorInteractionComponent() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_UDoorInteractionComponent_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_UDoorInteractionComponent_Statics::PropPointers),
 		0,
 		0x00B000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_UDoorInteractionComponent_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UDoorInteractionComponent_Statics::Class_MetaDataParams))
@@ -79,9 +155,9 @@ void EmptyLinkFunctionForGeneratedCodeDoorInteractionComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UDoorInteractionComponent, UDoorInteractionComponent::StaticClass, TEXT("UDoorInteractionComponent"), &Z_Registration_Info_UClass_UDoorInteractionComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDoorInteractionComponent), 2133853789U) },
+		{ Z_Construct_UClass_UDoorInteractionComponent, UDoorInteractionComponent::StaticClass, TEXT("UDoorInteractionComponent"), &Z_Registration_Info_UClass_UDoorInteractionComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDoorInteractionComponent), 421021743U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_4272571380(TEXT("/Script/DoorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_1865133674(TEXT("/Script/DoorProject"),
 		Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

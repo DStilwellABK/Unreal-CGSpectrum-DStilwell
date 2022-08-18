@@ -7,6 +7,7 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\DoorProjectEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
+"C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\DoorActor.cpp.obj"
 "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\DoorInteractionComponent.cpp.obj"
 "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\DoorProject.cpp.obj"
 "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\DoorProjectCharacter.cpp.obj"
@@ -14,6 +15,7 @@
 "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\DoorProjectProjectile.cpp.obj"
 "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\TP_PickUpComponent.cpp.obj"
 "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\TP_WeaponComponent.cpp.obj"
+"C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\DoorActor.gen.cpp.obj"
 "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\DoorInteractionComponent.gen.cpp.obj"
 "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\DoorProject.init.gen.cpp.obj"
 "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\DoorProjectCharacter.gen.cpp.obj"

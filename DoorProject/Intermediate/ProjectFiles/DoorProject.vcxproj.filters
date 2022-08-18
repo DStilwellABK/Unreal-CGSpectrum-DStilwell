@@ -86,6 +86,9 @@
     <ClCompile Include="..\..\Source\DoorProject\Private\DoorInteractionComponent.cpp">
       <Filter>Source\DoorProject\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DoorProject\Private\DoorSwingComponent.cpp">
+      <Filter>Source\DoorProject\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\DoorProject\Public">
       <UniqueIdentifier>{69D3199E-56B6-391D-A637-9C41A3B93AC6}</UniqueIdentifier>
     </Filter>
@@ -93,6 +96,9 @@
       <Filter>Source\DoorProject\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DoorProject\Public\DoorInteractionComponent.h">
+      <Filter>Source\DoorProject\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DoorProject\Public\DoorSwingComponent.h">
       <Filter>Source\DoorProject\Public</Filter>
     </ClInclude>
   </ItemGroup>
