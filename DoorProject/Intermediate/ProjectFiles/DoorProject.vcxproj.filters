@@ -89,7 +89,7 @@
     <ClCompile Include="..\..\Source\DoorProject\Private\DoorInteractionComponent.cpp">
       <Filter>Source\DoorProject\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\DoorProject\Private\DoorSwingComponent.cpp">
+    <ClCompile Include="..\..\Source\DoorProject\Private\Key.cpp">
       <Filter>Source\DoorProject\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DoorProject\Private\SlidingDoorComponent.cpp">
@@ -107,7 +107,7 @@
     <ClInclude Include="..\..\Source\DoorProject\Public\DoorInteractionComponent.h">
       <Filter>Source\DoorProject\Public</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\DoorProject\Public\DoorSwingComponent.h">
+    <ClInclude Include="..\..\Source\DoorProject\Public\Key.h">
       <Filter>Source\DoorProject\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DoorProject\Public\SlidingDoorComponent.h">

@@ -57,7 +57,19 @@ void UDoorInteractionComponent::BeginPlay()
 
 
 
+void UDoorInteractionComponent::LockDoor(bool AutoClose) {
+	if (DoorState == DoorStates::DOOR_OPEN && AutoClose) {
+		CloseDoor();
+	}
+	DoorLocked = true;
+}
 
+void UDoorInteractionComponent::UnlockDoor(bool AutoOpen) {
+	if (DoorState == DoorStates::DOOR_CLOSED && AutoOpen) {
+		OpenDoor();
+	}
+	DoorLocked = false;
+}
 
 
 // Called every frame, Our void Update() in terms of Unity

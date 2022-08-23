@@ -13,21 +13,3 @@ USlidingDoorComponent::USlidingDoorComponent()
 	// ...
 }
 
-
-// Called when the game starts
-void USlidingDoorComponent::BeginPlay()
-{
-	Super::BeginPlay();
-
-	// ...
-	
-}
-
-// Called every frame
-//void USlidingDoorComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-//{
-//	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-//
-//	// ...
-//}
-

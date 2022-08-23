@@ -33,7 +33,8 @@ protected:
 	void SetupDoorState(DoorStates doorStateToSet, DoorStates nextDoorStateToSet);
 
 	float TimeUntilDoorCloses = 0;
-public:	
+	bool DoorLocked = false;
+public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
@@ -42,7 +43,8 @@ public:
 	virtual void OpenDoor();
 	virtual void CloseDoor();
 
-	bool DoorLocked = false;
+	void UnlockDoor(bool AutoOpen);
+	void LockDoor(bool AutoClose);
 
 
 	//virtual void SetupDoorInputComponent(class UInputComponent* PlayerInputComponent) override;
