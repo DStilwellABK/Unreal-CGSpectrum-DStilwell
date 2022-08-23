@@ -11,6 +11,9 @@
     <None Include="..\..\Source\DoorProjectEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\ABILITYSYSTEMCOMPONENT_ABILITIES.ipch" />
+    <None Include="..\..\PHYSICSSIMPLE.ipch" />
+    <None Include="..\..\VREDITORINTERACTOR.ipch" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -89,6 +92,12 @@
     <ClCompile Include="..\..\Source\DoorProject\Private\DoorSwingComponent.cpp">
       <Filter>Source\DoorProject\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DoorProject\Private\SlidingDoorComponent.cpp">
+      <Filter>Source\DoorProject\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DoorProject\Private\SwingDoor.cpp">
+      <Filter>Source\DoorProject\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\DoorProject\Public">
       <UniqueIdentifier>{69D3199E-56B6-391D-A637-9C41A3B93AC6}</UniqueIdentifier>
     </Filter>
@@ -99,6 +108,12 @@
       <Filter>Source\DoorProject\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DoorProject\Public\DoorSwingComponent.h">
+      <Filter>Source\DoorProject\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DoorProject\Public\SlidingDoorComponent.h">
+      <Filter>Source\DoorProject\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DoorProject\Public\SwingDoor.h">
       <Filter>Source\DoorProject\Public</Filter>
     </ClInclude>
   </ItemGroup>

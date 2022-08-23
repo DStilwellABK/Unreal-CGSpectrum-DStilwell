@@ -12,60 +12,67 @@ class DOORPROJECT_API UDoorInteractionComponent : public UActorComponent
 {
 	GENERATED_BODY()
 	
+
+
+public:	
+	// Sets default values for this component's properties
+	UDoorInteractionComponent();
 	enum DoorStates {
 		DOOR_CLOSED,
 		DOOR_OPEN,
 		DOOR_MOVING
 	};
 
-public:	
-	// Sets default values for this component's properties
-	UDoorInteractionComponent();
-
-
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-	virtual void Use();
 	void BindToInput();
+	void SetupInput();
+	virtual void DoorIsMoving(float DeltaTime);
+	void SetupDoorState(DoorStates doorStateToSet, DoorStates nextDoorStateToSet);
 
-	DoorStates nextDoorState = DOOR_CLOSED;
-	DoorStates doorState = DOOR_CLOSED;
-
-	FRotator DesiredRotation = FRotator::ZeroRotator;
-	FRotator originalRotation = FRotator::ZeroRotator;
-	FRotator StartRotation = FRotator::ZeroRotator;
-	FRotator FinalRotation = FRotator::ZeroRotator;
-
-	float TimeToRotate = 1.0f;
-
-	void DoorIsMoving(float DeltaTime);
-
+	float TimeUntilDoorCloses = 0;
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	void ToggleDoor(FRotator rotation);
+	void ToggleDoor(bool DoneAutomatically);
+	virtual void Use();
+	virtual void OpenDoor();
+	virtual void CloseDoor();
+
+	bool DoorLocked = false;
+
 
 	//virtual void SetupDoorInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-
+	DoorStates NextDoorState = DOOR_CLOSED;
+	DoorStates DoorState = DOOR_CLOSED;
+	
+	// This should not be public to details/inspector. This is JUST for debugging.
+	UPROPERTY(EditAnywhere)
+		float CurrentRotationTime = 0.0f;
 	
 	UPROPERTY(EditAnywhere)
-		float CurrentRotationTime = 1.0f;
+		float TimeForDoorToSwitchToNextState = 1;
 
 	UPROPERTY(EditAnywhere)
 		bool IsDoorToggable = true;
 	UPROPERTY(EditAnywhere)
 		bool StartDoorOpen = false;
+	UPROPERTY(EditAnywhere, meta = (ToolTip = "If the door should be autoamtically opned"))
+		bool Automatic = false;
+	UPROPERTY(EditAnywhere, meta = (Tooltip = "Should the door Open if the player uses the use key?"))
+		bool OpenByUseKey = true;
+	UPROPERTY(EditAnywhere, meta = (Tooltip = "Should the door Close if the player uses the use key?"))
+		bool CloseByUseKey = true;
 	UPROPERTY(EditAnywhere)
-		FRotator closeDoorRotation = FRotator::ZeroRotator;
-	UPROPERTY(EditAnywhere)
-		FRotator openDoorRotation = FRotator::ZeroRotator;
+		bool DoorStartsLocked = false;
+	// How much time does it take for the door to automatically close on itself?
+	UPROPERTY(EditAnywhere, meta = (ToolTip = "Should the door automatically be closed? If so, for how long should the door remain open?"))
+		float CloseDoorAutomaticallyTime = 0;
 
-
-private:
 	bool PlayerIsInRange = false;
 	bool IsInTriggerBox = false;
 };

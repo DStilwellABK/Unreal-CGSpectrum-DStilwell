@@ -29,90 +29,33 @@ void UDoorInteractionComponent::BindToInput()
 }
 
 
-void UDoorInteractionComponent::Use() {
-	if (doorState != DoorStates::DOOR_MOVING && IsInTriggerBox) {
 
-		if (doorState == DoorStates::DOOR_OPEN) {
-			UE_LOG(LogTemp, Warning, TEXT("DOOR STATE IS SET TO MOVING, AND WE ARE CLOSING THE DOOR"));
-			nextDoorState = DoorStates::DOOR_CLOSED;
-			ToggleDoor(closeDoorRotation);
-		}
-		// If  we're closed, open.
-		else {
-			UE_LOG(LogTemp, Warning, TEXT("DOOR STATE IS SET TO MOVING, AND WE ARE OPENING THE DOOR"));
-			nextDoorState = DoorStates::DOOR_OPEN;
-			ToggleDoor(openDoorRotation);
-		}
-
-
-		doorState = DoorStates::DOOR_MOVING;
-	}
-}
-
-
-void UDoorInteractionComponent::ToggleDoor(FRotator rotation) {
-	StartRotation = GetOwner()->GetActorRotation();
-	CurrentRotationTime = 0.0f;
-	FinalRotation = rotation;
-}
 
 // Called when the game starts, our void Start() in terms of unity
 void UDoorInteractionComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
-
-
-
+	DoorLocked = DoorStartsLocked;
 	PlayerIsInRange = false;
-	BindToInput();
+
 	if (GetOwner()->InputComponent) {
-		//UE_LOG(LogTemp, Warning, TEXT("Input Component does exist, we're setting Use to the use function on ADoorActor class"));
 		GetOwner()->InputComponent->BindAction("Use", IE_Pressed, this, &UDoorInteractionComponent::Use);
 	}
 
-
-	if (!StartDoorOpen) {
-		doorState = DoorStates::DOOR_CLOSED;
-		UE_LOG(LogTemp, Warning, TEXT("DOOR IS STARTING AS CLOSED"));
+	if (StartDoorOpen) {
+		SetupDoorState(DoorStates::DOOR_OPEN, DoorStates::DOOR_OPEN);
+		OpenDoor();
 	}
 	else {
-		doorState = DoorStates::DOOR_OPEN;
-		nextDoorState = DoorStates::DOOR_OPEN;
-		UE_LOG(LogTemp, Warning, TEXT("DOOR IS STARTING AS OPEN"));
-		//FinalRotation=
-
-			//DesiredRotation = openDoorRotation;
-		FinalRotation = openDoorRotation;
-		GetOwner()->SetActorRotation(FinalRotation);
+		SetupDoorState(DoorStates::DOOR_CLOSED, DoorStates::DOOR_CLOSED);
 	}
 
-	
-	//if ()
-	// ...
-	
+	SetupInput();
+
 }
 
 
-void UDoorInteractionComponent::DoorIsMoving(float DeltaTime) {
-	// Calculate the rotation based on the speed * deltatime.
 
-
-	if (CurrentRotationTime < TimeToRotate) {
-		//UE_LOG(LogTemp, Warning, TEXT("We are rotating the door right now."))
-		CurrentRotationTime += DeltaTime;
-		const float RotationAlpha = FMath::Clamp(CurrentRotationTime / TimeToRotate, 0.0f, 1.0f);
-		const FRotator CurrentRotation = FMath::Lerp(StartRotation, FinalRotation, RotationAlpha);
-		GetOwner()->SetActorRotation(CurrentRotation);
-	}
-	else {
-		if (doorState == DoorStates::DOOR_MOVING) {
-			doorState = nextDoorState;
-
-			if (doorState == DoorStates::DOOR_OPEN) UE_LOG(LogTemp, Warning, TEXT("We set door to Open state, it's working here"));
-		}
-	}
-}
 
 
 
@@ -126,11 +69,72 @@ void UDoorInteractionComponent::TickComponent(float DeltaTime, ELevelTick TickTy
 	if (parentActor->TriggerBox && GetOwner()->GetWorld() && GetOwner()->GetWorld()->GetFirstLocalPlayerFromController()) {
 		APawn* PlayerPawn = GetOwner()->GetWorld()->GetFirstPlayerController()->GetPawn();
 		IsInTriggerBox = PlayerPawn && parentActor->TriggerBox->IsOverlappingActor(PlayerPawn);
+
+		if (Automatic) {
+			ToggleDoor(true);
+		}
 	}
 
-
+	if (TimeUntilDoorCloses > 0) {
+		if (DoorStates::DOOR_OPEN) {
+			TimeUntilDoorCloses -= DeltaTime;
+		}
+		else {
+			TimeUntilDoorCloses = 0;
+		}
+	}
+	else if (DoorState == DoorStates::DOOR_OPEN) {
+		CloseDoor();
+	}
 	DoorIsMoving(DeltaTime);
 	// ...
+}
+
+void UDoorInteractionComponent::SetupDoorState(DoorStates doorStateToSet, DoorStates nextDoorStateToSet) {
+	DoorState = doorStateToSet;
+	NextDoorState = nextDoorStateToSet;
+}
+
+void UDoorInteractionComponent::Use() {
+	if (OpenByUseKey || CloseByUseKey) ToggleDoor(false);
+}
+
+void UDoorInteractionComponent::ToggleDoor(bool DoneAutomatically) {
+	// If we're not togglable, don't toggle the door please.
+	if (DoorState == DoorStates::DOOR_OPEN && !IsDoorToggable) return;
+
+	if (CloseDoorAutomaticallyTime > 0 && DoorState == DoorStates::DOOR_OPEN) TimeUntilDoorCloses = CloseDoorAutomaticallyTime;
+
+	if (DoorState != DoorStates::DOOR_MOVING && IsInTriggerBox) {
+
+		if (DoorState == DoorStates::DOOR_OPEN) {
+			if (!CloseByUseKey && !DoneAutomatically) return;
+
+			UE_LOG(LogTemp, Warning, TEXT("DOOR STATE IS SET TO MOVING, AND WE ARE CLOSING THE DOOR"));
+			NextDoorState = DoorStates::DOOR_CLOSED;
+			CloseDoor();
+		}
+		// If  we're closed, open.
+		else {
+			if (!OpenByUseKey && !DoneAutomatically) return;
+			UE_LOG(LogTemp, Warning, TEXT("DOOR STATE IS SET TO MOVING, AND WE ARE OPENING THE DOOR"));
+			NextDoorState = DoorStates::DOOR_OPEN;
+			OpenDoor();
+		}
+
+
+		DoorState = DoorStates::DOOR_MOVING;
+	}
+}
+void UDoorInteractionComponent::OpenDoor() {}
+void UDoorInteractionComponent::CloseDoor() {}
+void UDoorInteractionComponent::DoorIsMoving(float DeltaTime) {}
+void UDoorInteractionComponent::SetupInput() {
+	BindToInput();
+	if (GetOwner()->InputComponent) {
+		//UE_LOG(LogTemp, Warning, TEXT("Input Component does exist, we're setting Use to the use function on ADoorActor class"));
+		GetOwner()->InputComponent->BindAction("Use", IE_Pressed, this, &UDoorInteractionComponent::Use);
+	}
 }
 
 //void UDoorInteractionComponent::SetupDoorInputComponent(class UInputComponent* PlayerInputComponent) {
