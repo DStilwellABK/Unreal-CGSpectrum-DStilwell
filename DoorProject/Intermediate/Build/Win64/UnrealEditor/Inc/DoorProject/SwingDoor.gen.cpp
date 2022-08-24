@@ -37,6 +37,10 @@ void EmptyLinkFunctionForGeneratedCodeSwingDoor() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_openDoorRotation_MetaData[];
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_openDoorRotation;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentRotationTime_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_CurrentRotationTime;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -56,9 +60,9 @@ void EmptyLinkFunctionForGeneratedCodeSwingDoor() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USwingDoor_Statics::NewProp_closeDoorRotation_MetaData[] = {
 		{ "Category", "SwingDoor" },
-		{ "Comment", "//virtual void Use() override;\n" },
+		{ "Comment", "//virtual void SetupDoor() override;\n//virtual void Use() override;\n" },
 		{ "ModuleRelativePath", "Public/SwingDoor.h" },
-		{ "ToolTip", "virtual void Use() override;" },
+		{ "ToolTip", "virtual void SetupDoor() override;\nvirtual void Use() override;" },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_USwingDoor_Statics::NewProp_closeDoorRotation = { "closeDoorRotation", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USwingDoor, closeDoorRotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(Z_Construct_UClass_USwingDoor_Statics::NewProp_closeDoorRotation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USwingDoor_Statics::NewProp_closeDoorRotation_MetaData)) };
@@ -69,9 +73,17 @@ void EmptyLinkFunctionForGeneratedCodeSwingDoor() {}
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_USwingDoor_Statics::NewProp_openDoorRotation = { "openDoorRotation", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USwingDoor, openDoorRotation), Z_Construct_UScriptStruct_FRotator, METADATA_PARAMS(Z_Construct_UClass_USwingDoor_Statics::NewProp_openDoorRotation_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USwingDoor_Statics::NewProp_openDoorRotation_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_USwingDoor_Statics::NewProp_CurrentRotationTime_MetaData[] = {
+		{ "Category", "SwingDoor" },
+		{ "ModuleRelativePath", "Public/SwingDoor.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_USwingDoor_Statics::NewProp_CurrentRotationTime = { "CurrentRotationTime", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(USwingDoor, CurrentRotationTime), METADATA_PARAMS(Z_Construct_UClass_USwingDoor_Statics::NewProp_CurrentRotationTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_USwingDoor_Statics::NewProp_CurrentRotationTime_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_USwingDoor_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USwingDoor_Statics::NewProp_closeDoorRotation,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USwingDoor_Statics::NewProp_openDoorRotation,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USwingDoor_Statics::NewProp_CurrentRotationTime,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_USwingDoor_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<USwingDoor>::IsAbstract,
@@ -109,9 +121,9 @@ void EmptyLinkFunctionForGeneratedCodeSwingDoor() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_SwingDoor_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_USwingDoor, USwingDoor::StaticClass, TEXT("USwingDoor"), &Z_Registration_Info_UClass_USwingDoor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USwingDoor), 535315025U) },
+		{ Z_Construct_UClass_USwingDoor, USwingDoor::StaticClass, TEXT("USwingDoor"), &Z_Registration_Info_UClass_USwingDoor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USwingDoor), 4158529191U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_SwingDoor_h_1563374474(TEXT("/Script/DoorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_SwingDoor_h_3949685735(TEXT("/Script/DoorProject"),
 		Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_SwingDoor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_SwingDoor_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

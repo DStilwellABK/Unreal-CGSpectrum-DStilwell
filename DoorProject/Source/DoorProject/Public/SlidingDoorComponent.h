@@ -18,14 +18,9 @@ public:
 	USlidingDoorComponent();
 
 protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
+
 
 public:	
-	// Called every frame
-	//virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
-	//virtual void Use() override;
-
-		
+	UPROPERTY(EditAnywhere, meta = (Tooltip = "Where should the door slide to?"))
+		FVector PositionToMoveTo = FVector::ZeroVector;
 };

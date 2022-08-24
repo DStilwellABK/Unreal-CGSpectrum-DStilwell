@@ -42,6 +42,7 @@ public:
 	virtual void Use();
 	virtual void OpenDoor();
 	virtual void CloseDoor();
+	//virtual void SetupDoor();
 
 	void UnlockDoor(bool AutoOpen);
 	void LockDoor(bool AutoClose);
@@ -53,8 +54,7 @@ public:
 	DoorStates DoorState = DOOR_CLOSED;
 	
 	// This should not be public to details/inspector. This is JUST for debugging.
-	UPROPERTY(EditAnywhere)
-		float CurrentRotationTime = 0.0f;
+
 	
 	UPROPERTY(EditAnywhere)
 		float TimeForDoorToSwitchToNextState = 1;

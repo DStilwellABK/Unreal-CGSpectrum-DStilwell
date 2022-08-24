@@ -41,6 +41,7 @@ void UDoorInteractionComponent::BeginPlay()
 	if (GetOwner()->InputComponent) {
 		GetOwner()->InputComponent->BindAction("Use", IE_Pressed, this, &UDoorInteractionComponent::Use);
 	}
+	SetupInput();
 
 	if (StartDoorOpen) {
 		SetupDoorState(DoorStates::DOOR_OPEN, DoorStates::DOOR_OPEN);
@@ -50,7 +51,6 @@ void UDoorInteractionComponent::BeginPlay()
 		SetupDoorState(DoorStates::DOOR_CLOSED, DoorStates::DOOR_CLOSED);
 	}
 
-	SetupInput();
 
 }
 
@@ -88,6 +88,7 @@ void UDoorInteractionComponent::TickComponent(float DeltaTime, ELevelTick TickTy
 	}
 
 	if (TimeUntilDoorCloses > 0) {
+		// Did we close before the timer could finish auto closing the door?
 		if (DoorStates::DOOR_OPEN) {
 			TimeUntilDoorCloses -= DeltaTime;
 		}
@@ -108,39 +109,45 @@ void UDoorInteractionComponent::SetupDoorState(DoorStates doorStateToSet, DoorSt
 }
 
 void UDoorInteractionComponent::Use() {
-	if (OpenByUseKey || CloseByUseKey) ToggleDoor(false);
+	if ((OpenByUseKey || CloseByUseKey) && DoorState != DoorStates::DOOR_MOVING && IsInTriggerBox) ToggleDoor(false);
 }
 
 void UDoorInteractionComponent::ToggleDoor(bool DoneAutomatically) {
 	// If we're not togglable, don't toggle the door please.
-	if (DoorState == DoorStates::DOOR_OPEN && !IsDoorToggable) return;
+	UE_LOG(LogTemp, Warning, TEXT("Toggle door is activated"));
+	if (DoorState == DoorStates::DOOR_OPEN && !IsDoorToggable) {
+		UE_LOG(LogTemp, Warning, TEXT("We are not closing the door cause IsDoorToggable is not set to true"));
+		return;
+	}
 
 	if (CloseDoorAutomaticallyTime > 0 && DoorState == DoorStates::DOOR_OPEN) TimeUntilDoorCloses = CloseDoorAutomaticallyTime;
 
-	if (DoorState != DoorStates::DOOR_MOVING && IsInTriggerBox) {
 
-		if (DoorState == DoorStates::DOOR_OPEN) {
-			if (!CloseByUseKey && !DoneAutomatically) return;
+	UE_LOG(LogTemp, Warning, TEXT("Checking if door state is currently set to open or closed"));
+	if (DoorState == DoorStates::DOOR_OPEN) {
+		if (!CloseByUseKey && !DoneAutomatically) return;
 
-			UE_LOG(LogTemp, Warning, TEXT("DOOR STATE IS SET TO MOVING, AND WE ARE CLOSING THE DOOR"));
-			NextDoorState = DoorStates::DOOR_CLOSED;
-			CloseDoor();
-		}
-		// If  we're closed, open.
-		else {
-			if (!OpenByUseKey && !DoneAutomatically) return;
-			UE_LOG(LogTemp, Warning, TEXT("DOOR STATE IS SET TO MOVING, AND WE ARE OPENING THE DOOR"));
-			NextDoorState = DoorStates::DOOR_OPEN;
-			OpenDoor();
-		}
-
-
-		DoorState = DoorStates::DOOR_MOVING;
+		UE_LOG(LogTemp, Warning, TEXT("Door is open, closing."));
+		NextDoorState = DoorStates::DOOR_CLOSED;
+		CloseDoor();
 	}
+	// If  we're closed, open.
+	else {
+		if (!OpenByUseKey && !DoneAutomatically) return;
+		UE_LOG(LogTemp, Warning, TEXT("Door is closed, opening."));
+		NextDoorState = DoorStates::DOOR_OPEN;
+		OpenDoor();
+	}
+
+
+	DoorState = DoorStates::DOOR_MOVING;
 }
+// These are to avoid errors in compile.
 void UDoorInteractionComponent::OpenDoor() {}
 void UDoorInteractionComponent::CloseDoor() {}
+//void UDoorInteractionComponent::SetupDoor() {}
 void UDoorInteractionComponent::DoorIsMoving(float DeltaTime) {}
+
 void UDoorInteractionComponent::SetupInput() {
 	BindToInput();
 	if (GetOwner()->InputComponent) {

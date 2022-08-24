@@ -1,21 +1,29 @@
 ﻿  Using bundled DotNet SDK
   Log file: C:\Users\dstilwell\AppData\Local\UnrealBuildTool\Log.txt
   Using 'git status' to determine working set for adaptive non-unity build (C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn).
+  Invalidating makefile for DoorProjectEditor (source file removed)
+  Parsing headers for DoorProjectEditor
+    Running UnrealHeaderTool "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\DoorProject.uproject" "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\DoorProjectEditor\Development\DoorProjectEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\dstilwell\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+  Reflection code generated for DoorProjectEditor in 1.4924 seconds
   Building DoorProjectEditor...
   Using Visual Studio 2022 14.32.31332 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   Determining max actions to execute in parallel (14 physical cores, 20 logical cores)
     Executing up to 14 processes, one per physical core
-    Requested 1.5 GB free memory per action, 12.99 GB available: limiting max parallel actions to 8
-  Building 8 actions with 8 processes...
-  [1/8] Compile DoorInteractionComponent.cpp
-  [2/8] Compile DoorProject.init.gen.cpp
-  [3/8] Compile DoorInteractionComponent.gen.cpp
-  [4/8] Compile DoorActor.gen.cpp
-  [5/8] Compile DoorActor.cpp
-  [6/8] Link UnrealEditor-DoorProject.lib
+    Requested 1.5 GB free memory per action, 16.48 GB available: limiting max parallel actions to 10
+  Building 12 actions with 10 processes...
+  [1/12] Compile SlidingDoorComponent.cpp
+  [2/12] Compile DoorActor.cpp
+  [3/12] Compile SlidingDoorComponent.gen.cpp
+  [4/12] Compile SwingDoor.gen.cpp
+  [5/12] Compile DoorInteractionComponent.gen.cpp
+  [6/12] Compile DoorProject.init.gen.cpp
+  [7/12] Compile DoorActor.gen.cpp
+  [8/12] Compile SwingDoor.cpp
+  [9/12] Compile DoorInteractionComponent.cpp
+  [10/12] Link UnrealEditor-DoorProject.lib
      Creating library C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\UnrealEditor-DoorProject.lib and object C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\UnrealEditor-DoorProject.exp
-  [7/8] Link UnrealEditor-DoorProject.dll
+  [11/12] Link UnrealEditor-DoorProject.dll
      Creating library C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\UnrealEditor-DoorProject.suppressed.lib and object C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\UnrealEditor-DoorProject.suppressed.exp
-  [8/8] WriteMetadata DoorProjectEditor.target
-  Total time in Parallel executor: 2.13 seconds
-  Total execution time: 2.70 seconds
+  [12/12] WriteMetadata DoorProjectEditor.target
+  Total time in Parallel executor: 2.66 seconds
+  Total execution time: 5.46 seconds

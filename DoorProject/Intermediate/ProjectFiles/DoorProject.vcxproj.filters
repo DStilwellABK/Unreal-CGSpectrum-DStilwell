@@ -83,13 +83,13 @@
     <Filter Include="Source\DoorProject\Private">
       <UniqueIdentifier>{D168D49D-D554-36DD-A507-BE99842A2828}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\DoorProject\Private\Check.cpp">
+      <Filter>Source\DoorProject\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DoorProject\Private\DoorActor.cpp">
       <Filter>Source\DoorProject\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DoorProject\Private\DoorInteractionComponent.cpp">
-      <Filter>Source\DoorProject\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\DoorProject\Private\Key.cpp">
       <Filter>Source\DoorProject\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DoorProject\Private\SlidingDoorComponent.cpp">
@@ -101,13 +101,13 @@
     <Filter Include="Source\DoorProject\Public">
       <UniqueIdentifier>{69D3199E-56B6-391D-A637-9C41A3B93AC6}</UniqueIdentifier>
     </Filter>
+    <ClInclude Include="..\..\Source\DoorProject\Public\Check.h">
+      <Filter>Source\DoorProject\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DoorProject\Public\DoorActor.h">
       <Filter>Source\DoorProject\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DoorProject\Public\DoorInteractionComponent.h">
-      <Filter>Source\DoorProject\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DoorProject\Public\Key.h">
       <Filter>Source\DoorProject\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DoorProject\Public\SlidingDoorComponent.h">

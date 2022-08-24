@@ -29,12 +29,16 @@ protected:
 public:
 	virtual void OpenDoor() override;
 	virtual void CloseDoor() override;
+	//virtual void SetupDoor() override;
 	//virtual void Use() override;
 
 	UPROPERTY(EditAnywhere)
 		FRotator closeDoorRotation = FRotator::ZeroRotator;
 	UPROPERTY(EditAnywhere)
 		FRotator openDoorRotation = FRotator::ZeroRotator;
+
+	UPROPERTY(EditAnywhere)
+		float CurrentRotationTime = 1.0f;
 
 
 	virtual void DoorIsMoving(float deltaTime) override;

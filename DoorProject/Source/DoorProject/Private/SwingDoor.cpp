@@ -32,6 +32,7 @@ void USwingDoor::OpenDoor() {
 	CurrentRotationTime = 0.0f;
 	FinalRotation = openDoorRotation;
 }
+
 void USwingDoor::CloseDoor() {
 	SetupDoorState(DoorStates::DOOR_CLOSED, DoorStates::DOOR_MOVING);
 	StartRotation = GetOwner()->GetActorRotation();
@@ -39,6 +40,9 @@ void USwingDoor::CloseDoor() {
 	FinalRotation = closeDoorRotation;
 }
 
+//void USwingDoor::SetupDoor() {
+//	CurrentRotationTime = 1;
+//}
 
 //void USwingDoor::Use() {
 //
