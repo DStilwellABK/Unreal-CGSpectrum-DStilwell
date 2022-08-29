@@ -17,10 +17,21 @@ public:
 	// Sets default values for this component's properties
 	USlidingDoorComponent();
 
+
 protected:
+	FVector OriginalPosition = FVector::ZeroVector;
+	FVector FinalPositon = FVector::ZeroVector;
 
+	FVector StartPosition = FVector::ZeroVector;
 
-public:	
+	float CurrentMovementTime = 1;
+
+	virtual void OpenDoor() override;
+	virtual void CloseDoor() override;
+	virtual void SetupDoor() override;
+
+	virtual void DoorIsMoving(float DeltaTime) override;
+public:
 	UPROPERTY(EditAnywhere, meta = (Tooltip = "Where should the door slide to?"))
 		FVector PositionToMoveTo = FVector::ZeroVector;
 };

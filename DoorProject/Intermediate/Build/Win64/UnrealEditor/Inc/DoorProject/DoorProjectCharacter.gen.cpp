@@ -71,6 +71,10 @@ void EmptyLinkFunctionForGeneratedCodeDoorProjectCharacter() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnUseItem_MetaData[];
 #endif
 		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnUseItem;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_WeaponCooldownTimer_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_WeaponCooldownTimer;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -125,11 +129,21 @@ void EmptyLinkFunctionForGeneratedCodeDoorProjectCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_OnUseItem = { "OnUseItem", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoorProjectCharacter, OnUseItem), Z_Construct_UDelegateFunction_DoorProject_OnUseItem__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_OnUseItem_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_OnUseItem_MetaData)) }; // 573616971
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_WeaponCooldownTimer_MetaData[] = {
+		{ "Category", "DoorProjectCharacter" },
+		{ "Comment", "// Set the weapon shooting cooldown timer.\n" },
+		{ "ModuleRelativePath", "DoorProjectCharacter.h" },
+		{ "ToolTip", "Set the weapon shooting cooldown timer." },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_WeaponCooldownTimer = { "WeaponCooldownTimer", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoorProjectCharacter, WeaponCooldownTimer), METADATA_PARAMS(Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_WeaponCooldownTimer_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_WeaponCooldownTimer_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADoorProjectCharacter_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_Mesh1P,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_FirstPersonCameraComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_TurnRateGamepad,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_OnUseItem,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_WeaponCooldownTimer,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADoorProjectCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ADoorProjectCharacter>::IsAbstract,
@@ -167,9 +181,9 @@ void EmptyLinkFunctionForGeneratedCodeDoorProjectCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_DoorProjectCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADoorProjectCharacter, ADoorProjectCharacter::StaticClass, TEXT("ADoorProjectCharacter"), &Z_Registration_Info_UClass_ADoorProjectCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADoorProjectCharacter), 737860949U) },
+		{ Z_Construct_UClass_ADoorProjectCharacter, ADoorProjectCharacter::StaticClass, TEXT("ADoorProjectCharacter"), &Z_Registration_Info_UClass_ADoorProjectCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADoorProjectCharacter), 3578314704U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_DoorProjectCharacter_h_3726374240(TEXT("/Script/DoorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_DoorProjectCharacter_h_210874586(TEXT("/Script/DoorProject"),
 		Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_DoorProjectCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_DoorProjectCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

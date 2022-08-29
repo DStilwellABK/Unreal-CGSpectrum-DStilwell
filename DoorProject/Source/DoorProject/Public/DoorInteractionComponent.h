@@ -39,9 +39,10 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	void ToggleDoor(bool DoneAutomatically);
-	virtual void Use();
+	void Use();
 	virtual void OpenDoor();
 	virtual void CloseDoor();
+	virtual void SetupDoor();
 	//virtual void SetupDoor();
 
 	void UnlockDoor(bool AutoOpen);

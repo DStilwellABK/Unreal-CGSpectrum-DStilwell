@@ -18,6 +18,9 @@ UTP_WeaponComponent::UTP_WeaponComponent()
 
 void UTP_WeaponComponent::Fire()
 {
+
+	UE_LOG(LogTemp, Warning, TEXT("WEAPON HAS BEEN FIRED"));
+
 	if(Character == nullptr || Character->GetController() == nullptr)
 	{
 		return;

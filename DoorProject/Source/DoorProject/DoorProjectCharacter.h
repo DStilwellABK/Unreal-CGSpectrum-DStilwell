@@ -49,6 +49,8 @@ protected:
 	/** Fires a projectile. */
 	void OnPrimaryAction();
 
+	void ToggleFiring();
+
 	/** Handles moving forward/backward */
 	void MoveForward(float Val);
 
@@ -94,6 +96,15 @@ protected:
 	bool EnableTouchscreenMovement(UInputComponent* InputComponent);
 
 public:
+	virtual void Tick(float DeltaTime) override;
+
+	bool CanFire = true;
+	bool IsShooting = false;
+	float Timer = 0;
+	// Set the weapon shooting cooldown timer.
+	UPROPERTY(EditAnywhere)
+		float WeaponCooldownTimer = 0.05f;
+
 	/** Returns Mesh1P subobject **/
 	USkeletalMeshComponent* GetMesh1P() const { return Mesh1P; }
 	/** Returns FirstPersonCameraComponent subobject **/

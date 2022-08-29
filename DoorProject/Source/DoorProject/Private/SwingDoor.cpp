@@ -27,14 +27,14 @@ USwingDoor::USwingDoor()
 
 void USwingDoor::OpenDoor() {
 	UE_LOG(LogTemp, Warning, TEXT("OPENNING THE DOOR NOW."))
-	SetupDoorState(DoorStates::DOOR_OPEN, DoorStates::DOOR_MOVING);
+	SetupDoorState(DoorStates::DOOR_MOVING, DoorStates::DOOR_OPEN);
 	StartRotation = GetOwner()->GetActorRotation();
 	CurrentRotationTime = 0.0f;
 	FinalRotation = openDoorRotation;
 }
 
 void USwingDoor::CloseDoor() {
-	SetupDoorState(DoorStates::DOOR_CLOSED, DoorStates::DOOR_MOVING);
+	SetupDoorState(DoorStates::DOOR_MOVING, DoorStates::DOOR_CLOSED);
 	StartRotation = GetOwner()->GetActorRotation();
 	CurrentRotationTime = 0.0f;
 	FinalRotation = closeDoorRotation;

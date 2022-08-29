@@ -56,7 +56,8 @@ void ADoorProjectCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 	// Bind fire event
-	PlayerInputComponent->BindAction("PrimaryAction", IE_Pressed, this, &ADoorProjectCharacter::OnPrimaryAction);
+	PlayerInputComponent->BindAction("PrimaryAction", IE_Pressed, this, &ADoorProjectCharacter::ToggleFiring);
+	PlayerInputComponent->BindAction("PrimaryAction", IE_Released, this, &ADoorProjectCharacter::ToggleFiring);
 
 	// Enable touchscreen input
 	EnableTouchscreenMovement(PlayerInputComponent);
@@ -76,9 +77,17 @@ void ADoorProjectCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 
 void ADoorProjectCharacter::OnPrimaryAction()
 {
+	CanFire = false;
+	Timer = WeaponCooldownTimer;
+	UE_LOG(LogTemp, Warning, TEXT("Primary action touched"));
 	// Trigger the OnItemUsed Event
 	OnUseItem.Broadcast();
 }
+
+void ADoorProjectCharacter::ToggleFiring() {
+	IsShooting = !IsShooting;
+}
+
 
 void ADoorProjectCharacter::BeginTouch(const ETouchIndex::Type FingerIndex, const FVector Location)
 {
@@ -88,7 +97,8 @@ void ADoorProjectCharacter::BeginTouch(const ETouchIndex::Type FingerIndex, cons
 	}
 	if ((FingerIndex == TouchItem.FingerIndex) && (TouchItem.bMoved == false))
 	{
-		OnPrimaryAction();
+		UE_LOG(LogTemp, Warning, TEXT("Beginning Touch"));
+		IsShooting = true;
 	}
 	TouchItem.bIsPressed = true;
 	TouchItem.FingerIndex = FingerIndex;
@@ -103,6 +113,23 @@ void ADoorProjectCharacter::EndTouch(const ETouchIndex::Type FingerIndex, const 
 		return;
 	}
 	TouchItem.bIsPressed = false;
+}
+
+void ADoorProjectCharacter::Tick(float DeltaTime)
+{
+
+	Super::Tick(DeltaTime);
+	if (CanFire && IsShooting) {
+		OnPrimaryAction();
+		UE_LOG(LogTemp, Warning, TEXT("Firing Weapon"));
+	}
+	else
+		if (Timer > 0) {
+			Timer -= DeltaTime;
+		}
+		else {
+			CanFire = true;
+		}
 }
 
 void ADoorProjectCharacter::MoveForward(float Value)

@@ -35,6 +35,7 @@ void UDoorInteractionComponent::BindToInput()
 void UDoorInteractionComponent::BeginPlay()
 {
 	Super::BeginPlay();
+	SetupDoor();
 	DoorLocked = DoorStartsLocked;
 	PlayerIsInRange = false;
 
@@ -78,27 +79,34 @@ void UDoorInteractionComponent::TickComponent(float DeltaTime, ELevelTick TickTy
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	ADoorActor* parentActor = (ADoorActor*)GetOwner();
-	if (parentActor->TriggerBox && GetOwner()->GetWorld() && GetOwner()->GetWorld()->GetFirstLocalPlayerFromController()) {
-		APawn* PlayerPawn = GetOwner()->GetWorld()->GetFirstPlayerController()->GetPawn();
-		IsInTriggerBox = PlayerPawn && parentActor->TriggerBox->IsOverlappingActor(PlayerPawn);
 
+
+	//if (parentActor->TriggerBox && GetOwner()->GetWorld() && GetOwner()->GetWorld()->GetFirstLocalPlayerFromController()) {
+		//APawn* PlayerPawn = GetOwner()->GetWorld()->GetFirstPlayerController()->GetPawn();
+		//IsInTriggerBox = PlayerPawn && parentActor->TriggerBox->IsOverlappingActor(PlayerPawn);
+
+	if (parentActor->TriggerBox && parentActor->TriggerBox->IsInTrigger) {
+		PlayerIsInRange = parentActor->TriggerBox->IsInTrigger;
 		if (Automatic) {
 			ToggleDoor(true);
 		}
 	}
 
-	if (TimeUntilDoorCloses > 0) {
-		// Did we close before the timer could finish auto closing the door?
-		if (DoorStates::DOOR_OPEN) {
-			TimeUntilDoorCloses -= DeltaTime;
+	if (CloseDoorAutomaticallyTime > 0) {
+		if (TimeUntilDoorCloses > 0) {
+			// Did we close before the timer could finish auto closing the door?
+			if (DoorStates::DOOR_OPEN) {
+				TimeUntilDoorCloses -= DeltaTime;
+			}
+			else {
+				TimeUntilDoorCloses = 0;
+			}
 		}
-		else {
-			TimeUntilDoorCloses = 0;
+		else if (DoorState == DoorStates::DOOR_OPEN) {
+			CloseDoor();
 		}
 	}
-	else if (DoorState == DoorStates::DOOR_OPEN) {
-		CloseDoor();
-	}
+
 	DoorIsMoving(DeltaTime);
 	// ...
 }
@@ -145,7 +153,7 @@ void UDoorInteractionComponent::ToggleDoor(bool DoneAutomatically) {
 // These are to avoid errors in compile.
 void UDoorInteractionComponent::OpenDoor() {}
 void UDoorInteractionComponent::CloseDoor() {}
-//void UDoorInteractionComponent::SetupDoor() {}
+void UDoorInteractionComponent::SetupDoor() {}
 void UDoorInteractionComponent::DoorIsMoving(float DeltaTime) {}
 
 void UDoorInteractionComponent::SetupInput() {

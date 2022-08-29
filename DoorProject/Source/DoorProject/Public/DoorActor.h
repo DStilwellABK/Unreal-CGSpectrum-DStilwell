@@ -2,12 +2,14 @@
 
 #pragma once
 
+#include "TriggerBoxActor.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "GameFramework/PlayerController.h"
 #include "Engine/TriggerBox.h"
 #include "Engine/World.h"
 #include "DoorActor.generated.h"
+
 
 UCLASS()
 class DOORPROJECT_API ADoorActor : public AActor
@@ -38,7 +40,7 @@ public:
 	//void BindToInput();
 
 	UPROPERTY(EditAnywhere)
-		ATriggerBox* TriggerBox;
+		ATriggerBoxActor* TriggerBox;
 
 };
 //class ATriggerBox;
