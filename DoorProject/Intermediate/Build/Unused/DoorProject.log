@@ -1,28 +1,17 @@
 ﻿  Using bundled DotNet SDK
   Log file: C:\Users\dstilwell\AppData\Local\UnrealBuildTool\Log.txt
   Using 'git status' to determine working set for adaptive non-unity build (C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn).
-  Failed to delete file 'C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Binaries\Win64\UnrealEditor-DoorProject.pdb'
-      Exception: Access to the path 'C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Binaries\Win64\UnrealEditor-DoorProject.pdb' is denied.
-  Attempting to retry...
-  Failed to delete file 'C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Binaries\Win64\UnrealEditor-DoorProject.pdb'
-      Exception: Access to the path 'C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Binaries\Win64\UnrealEditor-DoorProject.pdb' is denied.
-  Attempting to retry...
-  Failed to delete file 'C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Binaries\Win64\UnrealEditor-DoorProject.pdb'
-      Exception: Access to the path 'C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Binaries\Win64\UnrealEditor-DoorProject.pdb' is denied.
-EXEC : error : Exhausted all retries!
   Building DoorProjectEditor...
   Using Visual Studio 2022 14.32.31332 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   Determining max actions to execute in parallel (14 physical cores, 20 logical cores)
     Executing up to 14 processes, one per physical core
-    Requested 1.5 GB free memory per action, 13.63 GB available: limiting max parallel actions to 9
-  Building 5 actions with 5 processes...
-  [1/5] Compile TriggerBoxActor.cpp
-  [2/5] Compile DoorInteractionComponent.cpp
-  [3/5] Link UnrealEditor-DoorProject.lib
+    Requested 1.5 GB free memory per action, 17.75 GB available: limiting max parallel actions to 11
+  Building 4 actions with 4 processes...
+  [1/4] Compile DoorProjectCharacter.cpp
+  [2/4] Link UnrealEditor-DoorProject.lib
      Creating library C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\UnrealEditor-DoorProject.lib and object C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\UnrealEditor-DoorProject.exp
-  [4/5] Link UnrealEditor-DoorProject.dll
+  [3/4] Link UnrealEditor-DoorProject.dll
      Creating library C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\UnrealEditor-DoorProject.suppressed.lib and object C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\UnrealEditor-DoorProject.suppressed.exp
-  [5/5] WriteMetadata DoorProjectEditor.target
-  Total time in Parallel executor: 2.61 seconds
-  Total execution time: 5.10 seconds
-C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.MakeFile.Targets(44,5): error MSB3073: The command ""C:\Program Files\Epic Games\UE_5.0\Engine\Build\BatchFiles\Build.bat" DoorProjectEditor Win64 Development -Project="C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\DoorProject.uproject" -WaitMutex -FromMsBuild" exited with code -1.
+  [4/4] WriteMetadata DoorProjectEditor.target
+  Total time in Parallel executor: 2.80 seconds
+  Total execution time: 3.25 seconds

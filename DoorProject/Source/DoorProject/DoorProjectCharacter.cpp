@@ -1,5 +1,6 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
+#include "Misc/OutputDevice.h"
 #include "DoorProjectCharacter.h"
 #include "DoorProjectProjectile.h"
 #include "Animation/AnimInstance.h"
@@ -7,6 +8,8 @@
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/InputSettings.h"
+#include "DoorInteractionComponent.h"
+#include "DoorActor.h"
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -73,6 +76,8 @@ void ADoorProjectCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	PlayerInputComponent->BindAxis("Look Up / Down Mouse", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("Turn Right / Left Gamepad", this, &ADoorProjectCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("Look Up / Down Gamepad", this, &ADoorProjectCharacter::LookUpAtRate);
+
+	PlayerInputComponent->BindAction("Use", IE_Pressed, this, &ADoorProjectCharacter::Interact);
 }
 
 void ADoorProjectCharacter::OnPrimaryAction()
@@ -88,6 +93,27 @@ void ADoorProjectCharacter::ToggleFiring() {
 	IsShooting = !IsShooting;
 }
 
+void ADoorProjectCharacter::Interact() {
+	if (FirstPersonCameraComponent == nullptr) return;
+	FHitResult HitResult;
+	FVector Start = FirstPersonCameraComponent->GetComponentLocation();
+	FVector End = Start + FirstPersonCameraComponent->GetForwardVector() * InteractLineTraceLength;
+
+	GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECollisionChannel::ECC_Visibility);
+
+	UE_LOG(LogTemp, Warning, TEXT("Interact was used from Player Character."));
+	//GLog->Log(HitResult.GetActor()->GetName());
+
+	ADoorActor* Door = Cast<ADoorActor>(HitResult.GetActor());
+	if (Door) {
+		UE_LOG(LogTemp, Warning, TEXT("Door exists, now we're seeing if the door interaction component exists on the object."));
+		UDoorInteractionComponent* DoorInteractionComponent = Door->FindComponentByClass<UDoorInteractionComponent>();
+		if (DoorInteractionComponent) {
+			DoorInteractionComponent->Use();
+			UE_LOG(LogTemp, Warning, TEXT("Door interaction exists, we're gonna use the Use() function  it now."));
+		}
+	}
+}
 
 void ADoorProjectCharacter::BeginTouch(const ETouchIndex::Type FingerIndex, const FVector Location)
 {

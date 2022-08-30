@@ -95,6 +95,12 @@ protected:
 	 */
 	bool EnableTouchscreenMovement(UInputComponent* InputComponent);
 
+	void Interact();
+
+private:
+	UPROPERTY(EditAnywhere)
+		float InteractLineTraceLength = 350.f;
+
 public:
 	virtual void Tick(float DeltaTime) override;
 

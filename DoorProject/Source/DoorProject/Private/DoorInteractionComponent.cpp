@@ -17,16 +17,16 @@ UDoorInteractionComponent::UDoorInteractionComponent()
 
 
 
-void UDoorInteractionComponent::BindToInput()
-{
-	// Initialize our component
-	GetOwner()->InputComponent = NewObject<UInputComponent>(GetOwner());
-	GetOwner()->InputComponent->RegisterComponent();
-	if (GetOwner()->InputComponent)
-	{
-		GetOwner()->EnableInput(GetOwner()->GetWorld()->GetFirstPlayerController());
-	}
-}
+//void UDoorInteractionComponent::BindToInput()
+//{
+//	// Initialize our component
+//	GetOwner()->InputComponent = NewObject<UInputComponent>(GetOwner());
+//	GetOwner()->InputComponent->RegisterComponent();
+//	if (GetOwner()->InputComponent)
+//	{
+//		GetOwner()->EnableInput(GetOwner()->GetWorld()->GetFirstPlayerController());
+//	}
+//}
 
 
 
@@ -35,14 +35,16 @@ void UDoorInteractionComponent::BindToInput()
 void UDoorInteractionComponent::BeginPlay()
 {
 	Super::BeginPlay();
+	IsInTriggerBox = false;
+
 	SetupDoor();
 	DoorLocked = DoorStartsLocked;
-	PlayerIsInRange = false;
+	//PlayerIsInRange = false;
 
-	if (GetOwner()->InputComponent) {
-		GetOwner()->InputComponent->BindAction("Use", IE_Pressed, this, &UDoorInteractionComponent::Use);
-	}
-	SetupInput();
+	//if (GetOwner()->InputComponent) {
+	//	GetOwner()->InputComponent->BindAction("Use", IE_Pressed, this, &UDoorInteractionComponent::Use);
+	//}
+	//SetupInput();
 
 	if (StartDoorOpen) {
 		SetupDoorState(DoorStates::DOOR_OPEN, DoorStates::DOOR_OPEN);
@@ -53,9 +55,37 @@ void UDoorInteractionComponent::BeginPlay()
 	}
 
 
+	//ADoorActor* parentActor = (ADoorActor*)GetOwner();
+	if (TriggerBox) {
+		TriggerBox->OnActorBeginOverlap.AddDynamic(this, &UDoorInteractionComponent::OnBeginOverlap);
+		TriggerBox->OnActorEndOverlap.AddDynamic(this, &UDoorInteractionComponent::OnExitOverlap);
+	}
 }
 
+void UDoorInteractionComponent::OnBeginOverlap(class AActor* overlappedActor, class AActor* otherActor) {
+	if (otherActor && otherActor != TriggerBox) {
+		IsInTriggerBox = true;
+		//FText txt = FText::ToString(GetOwner()->GetName());
+		//UE_LOG(LogTemp, Warning, TEXT(txt));
+	}
 
+
+
+	//if (IsInTriggerBox) {
+	//	UE_LOG(LogTemp, Warning, TEXT("Is In The Trigger Box is set to TRUE, p."));
+	//}
+
+	if (Automatic) {
+		ToggleDoor(true);
+	}
+}
+
+void UDoorInteractionComponent::OnExitOverlap(class AActor* overlappedActor, class AActor* otherActor) {
+	if (otherActor && otherActor != TriggerBox) {
+		IsInTriggerBox = false;
+		UE_LOG(LogTemp, Warning, TEXT("Player is EXITING the trigger."));
+	}
+}
 
 
 void UDoorInteractionComponent::LockDoor(bool AutoClose) {
@@ -78,19 +108,33 @@ void UDoorInteractionComponent::TickComponent(float DeltaTime, ELevelTick TickTy
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	ADoorActor* parentActor = (ADoorActor*)GetOwner();
 
-
+	//if (IsInTriggerBox) {
+	//	UE_LOG(LogTemp, Warning, TEXT("Is In The Trigger Box."));
+	//}
+	//else {
+	//	UE_LOG(LogTemp, Warning, TEXT("Is NOT In the Trigger Box."));
+	//}
 	//if (parentActor->TriggerBox && GetOwner()->GetWorld() && GetOwner()->GetWorld()->GetFirstLocalPlayerFromController()) {
 		//APawn* PlayerPawn = GetOwner()->GetWorld()->GetFirstPlayerController()->GetPawn();
-		//IsInTriggerBox = PlayerPawn && parentActor->TriggerBox->IsOverlappingActor(PlayerPawn);
+	//if (parentActor->TriggerBox) {
+	//	IsInTriggerBox = parentActor->TriggerBox->IsInTrigger;
+	//	if (IsInTriggerBox) {
+	//		UE_LOG(LogTemp, Warning, TEXT("Is in the trigger box ..... part 1"));
+	//	}
+	//	else {
+	//		UE_LOG(LogTemp, Warning, TEXT("Is NOT in the trigger box ..... part 1"));
+	//	}
+	//}
+	
+//	if (IsInTriggerBox) {
+//	UE_LOG(LogTemp, Warning, TEXT("Is in the trigger box ..... part 2 "));
+//}
+//else {
+//	UE_LOG(LogTemp, Warning, TEXT("Is NOT in the trigger box ..... part 2"));
+//}
 
-	if (parentActor->TriggerBox && parentActor->TriggerBox->IsInTrigger) {
-		PlayerIsInRange = parentActor->TriggerBox->IsInTrigger;
-		if (Automatic) {
-			ToggleDoor(true);
-		}
-	}
+
 
 	if (CloseDoorAutomaticallyTime > 0) {
 		if (TimeUntilDoorCloses > 0) {
@@ -117,12 +161,24 @@ void UDoorInteractionComponent::SetupDoorState(DoorStates doorStateToSet, DoorSt
 }
 
 void UDoorInteractionComponent::Use() {
-	if ((OpenByUseKey || CloseByUseKey) && DoorState != DoorStates::DOOR_MOVING && IsInTriggerBox) ToggleDoor(false);
+	if (IsInTriggerBox == false) {
+		UE_LOG(LogTemp, Warning, TEXT("Player is not in trigger box yet, cannot continue"));
+		//UE_LOG(LogTemp, Warning, TEXT("My GO is " + GetOwner()->GetActorNameOrLabel()));
+	}
+	else if (!OpenByUseKey && !CloseByUseKey) {
+		UE_LOG(LogTemp, Warning, TEXT("Door is interacted automatically, use is not meant to be done."));
+	}
+	else {
+		UE_LOG(LogTemp, Warning, TEXT("Use was pressed"));
+	}
+	if ((OpenByUseKey || CloseByUseKey) && IsInTriggerBox) ToggleDoor(false);
 }
 
 void UDoorInteractionComponent::ToggleDoor(bool DoneAutomatically) {
 	// If we're not togglable, don't toggle the door please.
-	UE_LOG(LogTemp, Warning, TEXT("Toggle door is activated"));
+	//UE_LOG(LogTemp, Warning, TEXT("Toggle door is activated"));
+
+	if (DoorState == DoorStates::DOOR_MOVING) return;
 	if (DoorState == DoorStates::DOOR_OPEN && !IsDoorToggable) {
 		UE_LOG(LogTemp, Warning, TEXT("We are not closing the door cause IsDoorToggable is not set to true"));
 		return;
@@ -156,13 +212,13 @@ void UDoorInteractionComponent::CloseDoor() {}
 void UDoorInteractionComponent::SetupDoor() {}
 void UDoorInteractionComponent::DoorIsMoving(float DeltaTime) {}
 
-void UDoorInteractionComponent::SetupInput() {
-	BindToInput();
-	if (GetOwner()->InputComponent) {
-		//UE_LOG(LogTemp, Warning, TEXT("Input Component does exist, we're setting Use to the use function on ADoorActor class"));
-		GetOwner()->InputComponent->BindAction("Use", IE_Pressed, this, &UDoorInteractionComponent::Use);
-	}
-}
+//void UDoorInteractionComponent::SetupInput() {
+//	//BindToInput();
+//	if (GetOwner()->InputComponent) {
+//		//UE_LOG(LogTemp, Warning, TEXT("Input Component does exist, we're setting Use to the use function on ADoorActor class"));
+//		GetOwner()->InputComponent->BindAction("Use", IE_Pressed, this, &UDoorInteractionComponent::Use);
+//	}
+//}
 
 //void UDoorInteractionComponent::SetupDoorInputComponent(class UInputComponent* PlayerInputComponent) {
 //

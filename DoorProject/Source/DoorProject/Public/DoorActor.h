@@ -2,7 +2,7 @@
 
 #pragma once
 
-#include "TriggerBoxActor.h"
+//#include "TriggerBoxActor.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "GameFramework/PlayerController.h"
@@ -39,8 +39,7 @@ public:
 	//	FRotator openDoorRotation = FRotator::ZeroRotator;
 	//void BindToInput();
 
-	UPROPERTY(EditAnywhere)
-		ATriggerBoxActor* TriggerBox;
+
 
 };
 //class ATriggerBox;

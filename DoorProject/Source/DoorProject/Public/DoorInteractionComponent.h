@@ -2,7 +2,9 @@
 
 #pragma once
 
-
+#include "GameFramework/PlayerController.h"
+#include "Engine/TriggerBox.h"
+#include "Engine/World.h"
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "DoorInteractionComponent.generated.h"
@@ -27,13 +29,16 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-	void BindToInput();
-	void SetupInput();
+	//void BindToInput();
+	//void SetupInput();
 	virtual void DoorIsMoving(float DeltaTime);
 	void SetupDoorState(DoorStates doorStateToSet, DoorStates nextDoorStateToSet);
 
 	float TimeUntilDoorCloses = 0;
 	bool DoorLocked = false;
+
+
+
 public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
@@ -76,6 +81,19 @@ public:
 	UPROPERTY(EditAnywhere, meta = (ToolTip = "Should the door automatically be closed? If so, for how long should the door remain open?"))
 		float CloseDoorAutomaticallyTime = 0;
 
+	//UPROPERTY(EditAnywhere, meta = (ToolTip = "If you want the door to be automatic, how long should the door wait until"))
+		//float AutomaticDoorToggleTime = 0
 	bool PlayerIsInRange = false;
 	bool IsInTriggerBox = false;
+
+
+	UPROPERTY(EditAnywhere)
+		ATriggerBox* TriggerBox;
+
+
+	UFUNCTION()
+		void OnBeginOverlap(class AActor* overlappedActor, class AActor* otherActor);
+
+	UFUNCTION()
+		void OnExitOverlap(class AActor* overlappedActor, class AActor* otherActor);
 };

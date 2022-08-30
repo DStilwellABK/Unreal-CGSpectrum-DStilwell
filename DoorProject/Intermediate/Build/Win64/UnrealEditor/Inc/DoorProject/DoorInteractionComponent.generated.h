@@ -8,15 +8,26 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
 #ifdef DOORPROJECT_DoorInteractionComponent_generated_h
 #error "DoorInteractionComponent.generated.h already included, missing '#pragma once' in DoorInteractionComponent.h"
 #endif
 #define DOORPROJECT_DoorInteractionComponent_generated_h
 
-#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_SPARSE_DATA
-#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_RPC_WRAPPERS
-#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_INCLASS_NO_PURE_DECLS \
+#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_SPARSE_DATA
+#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execOnExitOverlap); \
+	DECLARE_FUNCTION(execOnBeginOverlap);
+
+
+#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execOnExitOverlap); \
+	DECLARE_FUNCTION(execOnBeginOverlap);
+
+
+#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUDoorInteractionComponent(); \
 	friend struct Z_Construct_UClass_UDoorInteractionComponent_Statics; \
@@ -25,7 +36,7 @@ public: \
 	DECLARE_SERIALIZER(UDoorInteractionComponent)
 
 
-#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_INCLASS \
+#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_INCLASS \
 private: \
 	static void StaticRegisterNativesUDoorInteractionComponent(); \
 	friend struct Z_Construct_UClass_UDoorInteractionComponent_Statics; \
@@ -34,7 +45,7 @@ public: \
 	DECLARE_SERIALIZER(UDoorInteractionComponent)
 
 
-#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_STANDARD_CONSTRUCTORS \
+#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UDoorInteractionComponent(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UDoorInteractionComponent) \
@@ -47,7 +58,7 @@ private: \
 public:
 
 
-#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_ENHANCED_CONSTRUCTORS \
+#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API UDoorInteractionComponent(UDoorInteractionComponent&&); \
@@ -58,25 +69,25 @@ public: \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UDoorInteractionComponent)
 
 
-#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_10_PROLOG
-#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_GENERATED_BODY_LEGACY \
+#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_12_PROLOG
+#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_SPARSE_DATA \
-	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_RPC_WRAPPERS \
-	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_INCLASS \
-	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_STANDARD_CONSTRUCTORS \
+	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_SPARSE_DATA \
+	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_RPC_WRAPPERS \
+	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_INCLASS \
+	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_GENERATED_BODY \
+#define FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_SPARSE_DATA \
-	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_INCLASS_NO_PURE_DECLS \
-	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_13_ENHANCED_CONSTRUCTORS \
+	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_SPARSE_DATA \
+	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_INCLASS_NO_PURE_DECLS \
+	FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

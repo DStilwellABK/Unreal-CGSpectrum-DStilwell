@@ -8,23 +8,14 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class AActor;
 #ifdef DOORPROJECT_TriggerBoxActor_generated_h
 #error "TriggerBoxActor.generated.h already included, missing '#pragma once' in TriggerBoxActor.h"
 #endif
 #define DOORPROJECT_TriggerBoxActor_generated_h
 
 #define FID_DoorProject_Source_DoorProject_Public_TriggerBoxActor_h_15_SPARSE_DATA
-#define FID_DoorProject_Source_DoorProject_Public_TriggerBoxActor_h_15_RPC_WRAPPERS \
- \
-	DECLARE_FUNCTION(execEvent);
-
-
-#define FID_DoorProject_Source_DoorProject_Public_TriggerBoxActor_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
- \
-	DECLARE_FUNCTION(execEvent);
-
-
+#define FID_DoorProject_Source_DoorProject_Public_TriggerBoxActor_h_15_RPC_WRAPPERS
+#define FID_DoorProject_Source_DoorProject_Public_TriggerBoxActor_h_15_RPC_WRAPPERS_NO_PURE_DECLS
 #define FID_DoorProject_Source_DoorProject_Public_TriggerBoxActor_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesATriggerBoxActor(); \

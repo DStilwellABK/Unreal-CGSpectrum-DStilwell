@@ -22,6 +22,8 @@ public:
 
 	bool IsInTrigger = false;
 
-	UFUNCTION()
-		void Event(class AActor* overlappedActor, class AActor* otherActor);
+	//UFUNCTION()
+	//	void OnBeginOverlap(class AActor* overlappedActor, class AActor* otherActor);
+	//UFUNCTION()
+	//	void OnExitOverlap(class AActor* overlappedActor, class AActor* otherActor);
 };

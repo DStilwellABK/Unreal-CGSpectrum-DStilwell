@@ -13,9 +13,107 @@ void EmptyLinkFunctionForGeneratedCodeDoorInteractionComponent() {}
 	DOORPROJECT_API UClass* Z_Construct_UClass_UDoorInteractionComponent();
 	ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
 	UPackage* Z_Construct_UPackage__Script_DoorProject();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_ATriggerBox_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(UDoorInteractionComponent::execOnExitOverlap)
+	{
+		P_GET_OBJECT(AActor,Z_Param_overlappedActor);
+		P_GET_OBJECT(AActor,Z_Param_otherActor);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnExitOverlap(Z_Param_overlappedActor,Z_Param_otherActor);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UDoorInteractionComponent::execOnBeginOverlap)
+	{
+		P_GET_OBJECT(AActor,Z_Param_overlappedActor);
+		P_GET_OBJECT(AActor,Z_Param_otherActor);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnBeginOverlap(Z_Param_overlappedActor,Z_Param_otherActor);
+		P_NATIVE_END;
+	}
 	void UDoorInteractionComponent::StaticRegisterNativesUDoorInteractionComponent()
 	{
+		UClass* Class = UDoorInteractionComponent::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "OnBeginOverlap", &UDoorInteractionComponent::execOnBeginOverlap },
+			{ "OnExitOverlap", &UDoorInteractionComponent::execOnExitOverlap },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap_Statics
+	{
+		struct DoorInteractionComponent_eventOnBeginOverlap_Parms
+		{
+			AActor* overlappedActor;
+			AActor* otherActor;
+		};
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_overlappedActor;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_otherActor;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap_Statics::NewProp_overlappedActor = { "overlappedActor", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DoorInteractionComponent_eventOnBeginOverlap_Parms, overlappedActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap_Statics::NewProp_otherActor = { "otherActor", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DoorInteractionComponent_eventOnBeginOverlap_Parms, otherActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap_Statics::NewProp_overlappedActor,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap_Statics::NewProp_otherActor,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/DoorInteractionComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UDoorInteractionComponent, nullptr, "OnBeginOverlap", nullptr, nullptr, sizeof(Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap_Statics::DoorInteractionComponent_eventOnBeginOverlap_Parms), Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap_Statics
+	{
+		struct DoorInteractionComponent_eventOnExitOverlap_Parms
+		{
+			AActor* overlappedActor;
+			AActor* otherActor;
+		};
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_overlappedActor;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_otherActor;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap_Statics::NewProp_overlappedActor = { "overlappedActor", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DoorInteractionComponent_eventOnExitOverlap_Parms, overlappedActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap_Statics::NewProp_otherActor = { "otherActor", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(DoorInteractionComponent_eventOnExitOverlap_Parms, otherActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap_Statics::NewProp_overlappedActor,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap_Statics::NewProp_otherActor,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/DoorInteractionComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UDoorInteractionComponent, nullptr, "OnExitOverlap", nullptr, nullptr, sizeof(Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap_Statics::DoorInteractionComponent_eventOnExitOverlap_Parms), Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UDoorInteractionComponent);
 	UClass* Z_Construct_UClass_UDoorInteractionComponent_NoRegister()
@@ -25,6 +123,7 @@ void EmptyLinkFunctionForGeneratedCodeDoorInteractionComponent() {}
 	struct Z_Construct_UClass_UDoorInteractionComponent_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -66,6 +165,10 @@ void EmptyLinkFunctionForGeneratedCodeDoorInteractionComponent() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CloseDoorAutomaticallyTime_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_CloseDoorAutomaticallyTime;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TriggerBox_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_TriggerBox;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -73,6 +176,10 @@ void EmptyLinkFunctionForGeneratedCodeDoorInteractionComponent() {}
 	UObject* (*const Z_Construct_UClass_UDoorInteractionComponent_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_UActorComponent,
 		(UObject* (*)())Z_Construct_UPackage__Script_DoorProject,
+	};
+	const FClassFunctionLinkInfo Z_Construct_UClass_UDoorInteractionComponent_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UDoorInteractionComponent_OnBeginOverlap, "OnBeginOverlap" }, // 2313927268
+		{ &Z_Construct_UFunction_UDoorInteractionComponent_OnExitOverlap, "OnExitOverlap" }, // 2714212871
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UDoorInteractionComponent_Statics::Class_MetaDataParams[] = {
@@ -168,6 +275,13 @@ void EmptyLinkFunctionForGeneratedCodeDoorInteractionComponent() {}
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_CloseDoorAutomaticallyTime = { "CloseDoorAutomaticallyTime", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UDoorInteractionComponent, CloseDoorAutomaticallyTime), METADATA_PARAMS(Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_CloseDoorAutomaticallyTime_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_CloseDoorAutomaticallyTime_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_TriggerBox_MetaData[] = {
+		{ "Category", "DoorInteractionComponent" },
+		{ "ModuleRelativePath", "Public/DoorInteractionComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_TriggerBox = { "TriggerBox", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UDoorInteractionComponent, TriggerBox), Z_Construct_UClass_ATriggerBox_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_TriggerBox_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_TriggerBox_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UDoorInteractionComponent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_TimeForDoorToSwitchToNextState,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_IsDoorToggable,
@@ -177,6 +291,7 @@ void EmptyLinkFunctionForGeneratedCodeDoorInteractionComponent() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_CloseByUseKey,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_DoorStartsLocked,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_CloseDoorAutomaticallyTime,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UDoorInteractionComponent_Statics::NewProp_TriggerBox,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UDoorInteractionComponent_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UDoorInteractionComponent>::IsAbstract,
@@ -186,11 +301,11 @@ void EmptyLinkFunctionForGeneratedCodeDoorInteractionComponent() {}
 		"Engine",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_UDoorInteractionComponent_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_UDoorInteractionComponent_Statics::PropPointers),
 		0,
 		0x00B000A4u,
@@ -214,9 +329,9 @@ void EmptyLinkFunctionForGeneratedCodeDoorInteractionComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UDoorInteractionComponent, UDoorInteractionComponent::StaticClass, TEXT("UDoorInteractionComponent"), &Z_Registration_Info_UClass_UDoorInteractionComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDoorInteractionComponent), 1571388689U) },
+		{ Z_Construct_UClass_UDoorInteractionComponent, UDoorInteractionComponent::StaticClass, TEXT("UDoorInteractionComponent"), &Z_Registration_Info_UClass_UDoorInteractionComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDoorInteractionComponent), 3488938206U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_1108563346(TEXT("/Script/DoorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_1879184825(TEXT("/Script/DoorProject"),
 		Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_DoorInteractionComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
