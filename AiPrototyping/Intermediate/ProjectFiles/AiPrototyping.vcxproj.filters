@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\AiPrototyping.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\AiPrototyping.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\AiPrototypingEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\AiPrototyping">
+      <UniqueIdentifier>{6D34C249-62BC-3126-B006-6E017B51392F}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\AiPrototyping\AiPrototyping.Build.cs">
+      <Filter>Source\AiPrototyping</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\AiPrototyping\AiPrototyping.cpp">
+      <Filter>Source\AiPrototyping</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\AiPrototyping\AiPrototyping.h">
+      <Filter>Source\AiPrototyping</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\AiPrototyping\AiPrototypingCharacter.cpp">
+      <Filter>Source\AiPrototyping</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\AiPrototyping\AiPrototypingCharacter.h">
+      <Filter>Source\AiPrototyping</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\AiPrototyping\AiPrototypingGameMode.cpp">
+      <Filter>Source\AiPrototyping</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\AiPrototyping\AiPrototypingGameMode.h">
+      <Filter>Source\AiPrototyping</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

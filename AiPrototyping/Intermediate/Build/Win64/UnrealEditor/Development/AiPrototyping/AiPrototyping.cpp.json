@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\dstilwell\\documents\\unreal projects\\tantrumn\\aiprototyping\\source\\aiprototyping\\aiprototyping.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\dstilwell\\documents\\unreal projects\\tantrumn\\aiprototyping\\intermediate\\build\\win64\\aiprototypingeditor\\development\\engine\\sharedpch.engine.shadowerrors.h.pch",
+        "Includes": [
+            "c:\\users\\dstilwell\\documents\\unreal projects\\tantrumn\\aiprototyping\\intermediate\\build\\win64\\unrealeditor\\development\\aiprototyping\\definitions.aiprototyping.h",
+            "c:\\users\\dstilwell\\documents\\unreal projects\\tantrumn\\aiprototyping\\source\\aiprototyping\\aiprototyping.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

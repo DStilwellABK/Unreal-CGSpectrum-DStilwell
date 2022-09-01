@@ -56,6 +56,7 @@ void UDoorInteractionComponent::BeginPlay()
 
 
 	//ADoorActor* parentActor = (ADoorActor*)GetOwner();
+	// If trigger box exists, add the on being and on exit overlaps
 	if (TriggerBox) {
 		TriggerBox->OnActorBeginOverlap.AddDynamic(this, &UDoorInteractionComponent::OnBeginOverlap);
 		TriggerBox->OnActorEndOverlap.AddDynamic(this, &UDoorInteractionComponent::OnExitOverlap);
@@ -63,27 +64,14 @@ void UDoorInteractionComponent::BeginPlay()
 }
 
 void UDoorInteractionComponent::OnBeginOverlap(class AActor* overlappedActor, class AActor* otherActor) {
-	if (otherActor && otherActor != TriggerBox) {
-		IsInTriggerBox = true;
-		//FText txt = FText::ToString(GetOwner()->GetName());
-		//UE_LOG(LogTemp, Warning, TEXT(txt));
-	}
-
-
-
-	//if (IsInTriggerBox) {
-	//	UE_LOG(LogTemp, Warning, TEXT("Is In The Trigger Box is set to TRUE, p."));
-	//}
-
-	if (Automatic) {
+	if (otherActor && otherActor != TriggerBox && Automatic) {
 		ToggleDoor(true);
 	}
 }
 
 void UDoorInteractionComponent::OnExitOverlap(class AActor* overlappedActor, class AActor* otherActor) {
 	if (otherActor && otherActor != TriggerBox) {
-		IsInTriggerBox = false;
-		UE_LOG(LogTemp, Warning, TEXT("Player is EXITING the trigger."));
+		// Nothing for now
 	}
 }
 
@@ -107,34 +95,6 @@ void UDoorInteractionComponent::UnlockDoor(bool AutoOpen) {
 void UDoorInteractionComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-
-	//if (IsInTriggerBox) {
-	//	UE_LOG(LogTemp, Warning, TEXT("Is In The Trigger Box."));
-	//}
-	//else {
-	//	UE_LOG(LogTemp, Warning, TEXT("Is NOT In the Trigger Box."));
-	//}
-	//if (parentActor->TriggerBox && GetOwner()->GetWorld() && GetOwner()->GetWorld()->GetFirstLocalPlayerFromController()) {
-		//APawn* PlayerPawn = GetOwner()->GetWorld()->GetFirstPlayerController()->GetPawn();
-	//if (parentActor->TriggerBox) {
-	//	IsInTriggerBox = parentActor->TriggerBox->IsInTrigger;
-	//	if (IsInTriggerBox) {
-	//		UE_LOG(LogTemp, Warning, TEXT("Is in the trigger box ..... part 1"));
-	//	}
-	//	else {
-	//		UE_LOG(LogTemp, Warning, TEXT("Is NOT in the trigger box ..... part 1"));
-	//	}
-	//}
-	
-//	if (IsInTriggerBox) {
-//	UE_LOG(LogTemp, Warning, TEXT("Is in the trigger box ..... part 2 "));
-//}
-//else {
-//	UE_LOG(LogTemp, Warning, TEXT("Is NOT in the trigger box ..... part 2"));
-//}
-
-
 
 	if (CloseDoorAutomaticallyTime > 0) {
 		if (TimeUntilDoorCloses > 0) {
@@ -161,17 +121,15 @@ void UDoorInteractionComponent::SetupDoorState(DoorStates doorStateToSet, DoorSt
 }
 
 void UDoorInteractionComponent::Use() {
-	if (IsInTriggerBox == false) {
-		UE_LOG(LogTemp, Warning, TEXT("Player is not in trigger box yet, cannot continue"));
-		//UE_LOG(LogTemp, Warning, TEXT("My GO is " + GetOwner()->GetActorNameOrLabel()));
-	}
-	else if (!OpenByUseKey && !CloseByUseKey) {
+
+	if (!OpenByUseKey && !CloseByUseKey) {
 		UE_LOG(LogTemp, Warning, TEXT("Door is interacted automatically, use is not meant to be done."));
 	}
 	else {
 		UE_LOG(LogTemp, Warning, TEXT("Use was pressed"));
 	}
-	if ((OpenByUseKey || CloseByUseKey) && IsInTriggerBox) ToggleDoor(false);
+
+	if ((OpenByUseKey || CloseByUseKey)) ToggleDoor(false);
 }
 
 void UDoorInteractionComponent::ToggleDoor(bool DoneAutomatically) {

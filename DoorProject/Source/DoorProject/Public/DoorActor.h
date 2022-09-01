@@ -32,14 +32,4 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	
-	//UPROPERTY(EditAnywhere)
-	//	FRotator closeDoorRotation = FRotator::ZeroRotator;
-	//UPROPERTY(EditAnywhere)
-	//	FRotator openDoorRotation = FRotator::ZeroRotator;
-	//void BindToInput();
-
-
-
 };
-//class ATriggerBox;

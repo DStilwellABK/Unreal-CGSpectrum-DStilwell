@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\Users\\dstilwell\\Documents\\Unreal Projects\\Tantrumn\\AiPrototyping\\Source\\AiPrototyping\\AiPrototyping.Build.cs",
+		"C:\\Users\\dstilwell\\Documents\\Unreal Projects\\Tantrumn\\AiPrototyping\\Source\\AiPrototyping.Target.cs",
+		"C:\\Users\\dstilwell\\Documents\\Unreal Projects\\Tantrumn\\AiPrototyping\\Source\\AiPrototypingEditor.Target.cs"
+	],
+	"EngineVersion": "5.0.3"
+}

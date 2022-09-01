@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "AiPrototyping",
+			"Path": "C:\\Users\\dstilwell\\Documents\\Unreal Projects\\Tantrumn\\AiPrototyping\\Source\\AiPrototyping.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "AiPrototypingEditor",
+			"Path": "C:\\Users\\dstilwell\\Documents\\Unreal Projects\\Tantrumn\\AiPrototyping\\Source\\AiPrototypingEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

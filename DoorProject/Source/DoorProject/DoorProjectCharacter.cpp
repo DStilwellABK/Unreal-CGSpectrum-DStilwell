@@ -45,6 +45,9 @@ void ADoorProjectCharacter::BeginPlay()
 	// Call the base class  
 	Super::BeginPlay();
 
+	CurrentMaxAmmo = MaxAmmoCount;
+	CurrentAmmoCount = MaxAmmoInClip;
+
 }
 
 //////////////////////////////////////////////////////////////////////////// Input
@@ -78,15 +81,46 @@ void ADoorProjectCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 	PlayerInputComponent->BindAxis("Look Up / Down Gamepad", this, &ADoorProjectCharacter::LookUpAtRate);
 
 	PlayerInputComponent->BindAction("Use", IE_Pressed, this, &ADoorProjectCharacter::Interact);
+	PlayerInputComponent->BindAction("Reload", IE_Pressed, this, &ADoorProjectCharacter::ReloadWeapon);
 }
 
 void ADoorProjectCharacter::OnPrimaryAction()
 {
-	CanFire = false;
-	Timer = WeaponCooldownTimer;
-	UE_LOG(LogTemp, Warning, TEXT("Primary action touched"));
-	// Trigger the OnItemUsed Event
-	OnUseItem.Broadcast();
+	if (CurrentAmmoCount > 0) {
+		CanFire = false;
+		Timer = WeaponCooldownTimer;
+		UE_LOG(LogTemp, Warning, TEXT("Primary action touched"));
+		// Trigger the OnItemUsed Event
+		OnUseItem.Broadcast();
+
+		if (!InfiniteAmmo)
+			CurrentAmmoCount--;
+	}
+}
+
+void ADoorProjectCharacter::ReloadWeapon() {
+	// If the player is out of ammo, and we don't have infinite ammo, then don't reload.
+	
+
+	int AmmoToGive = MaxAmmoInClip - CurrentAmmoCount;
+
+	if (AmmoToGive > CurrentMaxAmmo)
+		AmmoToGive = CurrentMaxAmmo;
+
+	CurrentAmmoCount = AmmoToGive;
+
+	if (!InfiniteMaxAmmo) {
+		if (CurrentMaxAmmo <= 0)
+			return;
+		else
+			CurrentMaxAmmo -= AmmoToGive;
+	}
+	
+}
+
+void ADoorProjectCharacter::ObtainAmmo(int amount) {
+	CurrentMaxAmmo += amount;
+	if (CurrentMaxAmmo > MaxAmmoCount) CurrentMaxAmmo = MaxAmmoCount;
 }
 
 void ADoorProjectCharacter::ToggleFiring() {

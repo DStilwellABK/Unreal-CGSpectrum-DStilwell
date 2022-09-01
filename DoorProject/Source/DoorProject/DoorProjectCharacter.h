@@ -97,6 +97,7 @@ protected:
 
 	void Interact();
 
+
 private:
 	UPROPERTY(EditAnywhere)
 		float InteractLineTraceLength = 350.f;
@@ -110,6 +111,25 @@ public:
 	// Set the weapon shooting cooldown timer.
 	UPROPERTY(EditAnywhere)
 		float WeaponCooldownTimer = 0.05f;
+	UPROPERTY(EditAnywhere)
+		int MaxAmmoCount = 100;
+
+	UPROPERTY(EditAnywhere)
+		int MaxAmmoInClip = 30;
+
+	UPROPERTY(EditAnywhere)
+		// Shoudl we have Infinite Ammo, and never have to reload?
+		bool InfiniteAmmo;
+	UPROPERTY(EditAnywhere)
+		// Should we have infinite max ammo, but still reload?
+		bool InfiniteMaxAmmo;
+
+	void ObtainAmmo(int amount);
+
+	int CurrentMaxAmmo = 100;
+	int CurrentAmmoCount = 100;
+
+	void ReloadWeapon();
 
 	/** Returns Mesh1P subobject **/
 	USkeletalMeshComponent* GetMesh1P() const { return Mesh1P; }

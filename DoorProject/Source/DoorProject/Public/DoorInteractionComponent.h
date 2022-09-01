@@ -88,7 +88,7 @@ public:
 
 
 	UPROPERTY(EditAnywhere)
-		ATriggerBox* TriggerBox;
+		ATriggerBox* TriggerBox = nullptr;
 
 
 	UFUNCTION()

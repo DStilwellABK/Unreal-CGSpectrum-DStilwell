@@ -5,13 +5,27 @@
   Using Visual Studio 2022 14.32.31332 toolchain (C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
   Determining max actions to execute in parallel (14 physical cores, 20 logical cores)
     Executing up to 14 processes, one per physical core
-    Requested 1.5 GB free memory per action, 17.75 GB available: limiting max parallel actions to 11
-  Building 4 actions with 4 processes...
-  [1/4] Compile DoorProjectCharacter.cpp
-  [2/4] Link UnrealEditor-DoorProject.lib
+    Requested 1.5 GB free memory per action, 13.31 GB available: limiting max parallel actions to 8
+  Building 18 actions with 8 processes...
+  [1/18] Compile DoorActor.cpp
+  [2/18] Compile DoorProject.init.gen.cpp
+  [3/18] Compile SlidingDoorComponent.cpp
+  [4/18] Compile SwingDoor.cpp
+  [5/18] Compile TP_PickUpComponent.gen.cpp
+  [6/18] Compile DoorProjectCharacter.gen.cpp
+  [7/18] Compile DoorProjectGameMode.cpp
+  [8/18] Compile DoorProjectCharacter.cpp
+  [9/18] Compile SlidingDoorComponent.gen.cpp
+  [10/18] Compile DoorInteractionComponent.gen.cpp
+  [11/18] Compile DoorInteractionComponent.cpp
+  [12/18] Compile SwingDoor.gen.cpp
+  [13/18] Compile DoorActor.gen.cpp
+  [14/18] Compile TP_PickUpComponent.cpp
+  [15/18] Compile TP_WeaponComponent.cpp
+  [16/18] Link UnrealEditor-DoorProject.lib
      Creating library C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\UnrealEditor-DoorProject.lib and object C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\UnrealEditor-DoorProject.exp
-  [3/4] Link UnrealEditor-DoorProject.dll
+  [17/18] Link UnrealEditor-DoorProject.dll
      Creating library C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\UnrealEditor-DoorProject.suppressed.lib and object C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Development\DoorProject\UnrealEditor-DoorProject.suppressed.exp
-  [4/4] WriteMetadata DoorProjectEditor.target
-  Total time in Parallel executor: 2.80 seconds
-  Total execution time: 3.25 seconds
+  [18/18] WriteMetadata DoorProjectEditor.target
+  Total time in Parallel executor: 3.67 seconds
+  Total execution time: 4.23 seconds
