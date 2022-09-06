@@ -1,6 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "Misc/OutputDevice.h"
+#include "Blueprint/UserWidget.h"
 #include "DoorProjectCharacter.h"
 #include "DoorProjectProjectile.h"
 #include "Animation/AnimInstance.h"
@@ -48,6 +49,13 @@ void ADoorProjectCharacter::BeginPlay()
 	CurrentMaxAmmo = MaxAmmoCount;
 	CurrentAmmoCount = MaxAmmoInClip;
 
+	if (IsValid(WidgetClass)) {
+		HudWidget = Cast<UHudWidget>(CreateWidget(GetWorld(), WidgetClass));
+		
+		if (HudWidget != nullptr) {
+			//HudWidget->AddToViewport();
+		}
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////// Input

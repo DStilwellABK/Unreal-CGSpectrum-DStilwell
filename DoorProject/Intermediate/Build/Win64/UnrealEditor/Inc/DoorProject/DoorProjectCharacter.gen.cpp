@@ -16,6 +16,8 @@ void EmptyLinkFunctionForGeneratedCodeDoorProjectCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 // End Cross Module References
 	struct Z_Construct_UDelegateFunction_DoorProject_OnUseItem__DelegateSignature_Statics
 	{
@@ -64,6 +66,10 @@ void EmptyLinkFunctionForGeneratedCodeDoorProjectCharacter() {}
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_FirstPersonCameraComponent;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_WidgetClass_MetaData[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_WidgetClass;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_TurnRateGamepad_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_TurnRateGamepad;
@@ -97,6 +103,14 @@ void EmptyLinkFunctionForGeneratedCodeDoorProjectCharacter() {}
 #endif
 		static void NewProp_InfiniteMaxAmmo_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_InfiniteMaxAmmo;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentMaxAmmo_MetaData[];
+#endif
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_CurrentMaxAmmo;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentAmmoCount_MetaData[];
+#endif
+		static const UECodeGen_Private::FUnsizedIntPropertyParams NewProp_CurrentAmmoCount;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -133,6 +147,13 @@ void EmptyLinkFunctionForGeneratedCodeDoorProjectCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_FirstPersonCameraComponent = { "FirstPersonCameraComponent", nullptr, (EPropertyFlags)0x00400000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoorProjectCharacter, FirstPersonCameraComponent), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_FirstPersonCameraComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_FirstPersonCameraComponent_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_WidgetClass_MetaData[] = {
+		{ "Category", "Class Types" },
+		{ "ModuleRelativePath", "DoorProjectCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_WidgetClass = { "WidgetClass", nullptr, (EPropertyFlags)0x0024080000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoorProjectCharacter, WidgetClass), Z_Construct_UClass_UUserWidget_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_WidgetClass_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_WidgetClass_MetaData)) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_TurnRateGamepad_MetaData[] = {
 		{ "Category", "Camera" },
@@ -207,9 +228,24 @@ void EmptyLinkFunctionForGeneratedCodeDoorProjectCharacter() {}
 		((ADoorProjectCharacter*)Obj)->InfiniteMaxAmmo = 1;
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_InfiniteMaxAmmo = { "InfiniteMaxAmmo", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ADoorProjectCharacter), &Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_InfiniteMaxAmmo_SetBit, METADATA_PARAMS(Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_InfiniteMaxAmmo_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_InfiniteMaxAmmo_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_CurrentMaxAmmo_MetaData[] = {
+		{ "Category", "DoorProjectCharacter" },
+		{ "ModuleRelativePath", "DoorProjectCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_CurrentMaxAmmo = { "CurrentMaxAmmo", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoorProjectCharacter, CurrentMaxAmmo), METADATA_PARAMS(Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_CurrentMaxAmmo_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_CurrentMaxAmmo_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_CurrentAmmoCount_MetaData[] = {
+		{ "Category", "DoorProjectCharacter" },
+		{ "ModuleRelativePath", "DoorProjectCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_CurrentAmmoCount = { "CurrentAmmoCount", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoorProjectCharacter, CurrentAmmoCount), METADATA_PARAMS(Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_CurrentAmmoCount_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_CurrentAmmoCount_MetaData)) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADoorProjectCharacter_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_Mesh1P,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_FirstPersonCameraComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_WidgetClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_TurnRateGamepad,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_OnUseItem,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_InteractLineTraceLength,
@@ -218,6 +254,8 @@ void EmptyLinkFunctionForGeneratedCodeDoorProjectCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_MaxAmmoInClip,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_InfiniteAmmo,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_InfiniteMaxAmmo,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_CurrentMaxAmmo,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorProjectCharacter_Statics::NewProp_CurrentAmmoCount,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADoorProjectCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ADoorProjectCharacter>::IsAbstract,
@@ -255,9 +293,9 @@ void EmptyLinkFunctionForGeneratedCodeDoorProjectCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_DoorProjectCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADoorProjectCharacter, ADoorProjectCharacter::StaticClass, TEXT("ADoorProjectCharacter"), &Z_Registration_Info_UClass_ADoorProjectCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADoorProjectCharacter), 3851516976U) },
+		{ Z_Construct_UClass_ADoorProjectCharacter, ADoorProjectCharacter::StaticClass, TEXT("ADoorProjectCharacter"), &Z_Registration_Info_UClass_ADoorProjectCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADoorProjectCharacter), 2141110243U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_DoorProjectCharacter_h_195905056(TEXT("/Script/DoorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_DoorProjectCharacter_h_2616135209(TEXT("/Script/DoorProject"),
 		Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_DoorProjectCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_DoorProjectCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

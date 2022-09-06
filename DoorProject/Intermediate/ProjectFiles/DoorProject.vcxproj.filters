@@ -89,13 +89,13 @@
     <ClCompile Include="..\..\Source\DoorProject\Private\DoorInteractionComponent.cpp">
       <Filter>Source\DoorProject\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\DoorProject\Private\HudWidget.cpp">
+      <Filter>Source\DoorProject\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\DoorProject\Private\SlidingDoorComponent.cpp">
       <Filter>Source\DoorProject\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\DoorProject\Private\SwingDoor.cpp">
-      <Filter>Source\DoorProject\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\DoorProject\Private\TriggerBoxActor.cpp">
       <Filter>Source\DoorProject\Private</Filter>
     </ClCompile>
     <Filter Include="Source\DoorProject\Public">
@@ -107,13 +107,13 @@
     <ClInclude Include="..\..\Source\DoorProject\Public\DoorInteractionComponent.h">
       <Filter>Source\DoorProject\Public</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\DoorProject\Public\HudWidget.h">
+      <Filter>Source\DoorProject\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\DoorProject\Public\SlidingDoorComponent.h">
       <Filter>Source\DoorProject\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\DoorProject\Public\SwingDoor.h">
-      <Filter>Source\DoorProject\Public</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\DoorProject\Public\TriggerBoxActor.h">
       <Filter>Source\DoorProject\Public</Filter>
     </ClInclude>
   </ItemGroup>

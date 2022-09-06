@@ -36,6 +36,12 @@ public:
 protected:
 	virtual void BeginPlay();
 
+	UPROPERTY(EditAnywhere, Category = "Class Types")
+	TSubclassOf<UUserWidget> WidgetClass;
+
+	UPROPERTY(VisibleInstanceOnly, Category = "Runtime")
+		class UHudWidget* HudWidget;
+
 public:
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
@@ -126,8 +132,10 @@ public:
 
 	void ObtainAmmo(int amount);
 
-	int CurrentMaxAmmo = 100;
-	int CurrentAmmoCount = 100;
+	UPROPERTY(BlueprintReadWrite)
+		int CurrentMaxAmmo = 100;
+	UPROPERTY(BlueprintReadWrite)
+		int CurrentAmmoCount = 100;
 
 	void ReloadWeapon();
 
