@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeDoorActor() {}
 	DOORPROJECT_API UClass* Z_Construct_UClass_ADoorActor();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
 	UPackage* Z_Construct_UPackage__Script_DoorProject();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 // End Cross Module References
 	void ADoorActor::StaticRegisterNativesADoorActor()
 	{
@@ -28,6 +29,15 @@ void EmptyLinkFunctionForGeneratedCodeDoorActor() {}
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_doorSideFront_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_doorSideFront;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_doorSideBack_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_doorSideBack;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
@@ -41,6 +51,24 @@ void EmptyLinkFunctionForGeneratedCodeDoorActor() {}
 		{ "ModuleRelativePath", "Public/DoorActor.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoorActor_Statics::NewProp_doorSideFront_MetaData[] = {
+		{ "Category", "DoorActor" },
+		{ "ModuleRelativePath", "Public/DoorActor.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADoorActor_Statics::NewProp_doorSideFront = { "doorSideFront", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoorActor, doorSideFront), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADoorActor_Statics::NewProp_doorSideFront_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoorActor_Statics::NewProp_doorSideFront_MetaData)) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADoorActor_Statics::NewProp_doorSideBack_MetaData[] = {
+		{ "Category", "DoorActor" },
+		{ "ModuleRelativePath", "Public/DoorActor.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADoorActor_Statics::NewProp_doorSideBack = { "doorSideBack", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ADoorActor, doorSideBack), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ADoorActor_Statics::NewProp_doorSideBack_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ADoorActor_Statics::NewProp_doorSideBack_MetaData)) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADoorActor_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorActor_Statics::NewProp_doorSideFront,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADoorActor_Statics::NewProp_doorSideBack,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADoorActor_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ADoorActor>::IsAbstract,
 	};
@@ -50,11 +78,11 @@ void EmptyLinkFunctionForGeneratedCodeDoorActor() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_ADoorActor_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_ADoorActor_Statics::PropPointers),
 		0,
 		0x009000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_ADoorActor_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_ADoorActor_Statics::Class_MetaDataParams))
@@ -77,9 +105,9 @@ void EmptyLinkFunctionForGeneratedCodeDoorActor() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_DoorActor_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADoorActor, ADoorActor::StaticClass, TEXT("ADoorActor"), &Z_Registration_Info_UClass_ADoorActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADoorActor), 706317549U) },
+		{ Z_Construct_UClass_ADoorActor, ADoorActor::StaticClass, TEXT("ADoorActor"), &Z_Registration_Info_UClass_ADoorActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADoorActor), 1223869343U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_DoorActor_h_401620671(TEXT("/Script/DoorProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_DoorActor_h_4175943012(TEXT("/Script/DoorProject"),
 		Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_DoorActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_DoorProject_Source_DoorProject_Public_DoorActor_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

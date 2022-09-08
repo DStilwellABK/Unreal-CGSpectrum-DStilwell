@@ -50,7 +50,7 @@ void ADoorProjectCharacter::BeginPlay()
 	CurrentAmmoCount = MaxAmmoInClip;
 
 	if (IsValid(WidgetClass)) {
-		HudWidget = Cast<UHudWidget>(CreateWidget(GetWorld(), WidgetClass));
+		//HudWidget = Cast<UHudWidget>(CreateWidget(GetWorld(), WidgetClass));
 		
 		if (HudWidget != nullptr) {
 			//HudWidget->AddToViewport();
@@ -94,7 +94,7 @@ void ADoorProjectCharacter::SetupPlayerInputComponent(class UInputComponent* Pla
 
 void ADoorProjectCharacter::OnPrimaryAction()
 {
-	if (CurrentAmmoCount > 0) {
+	if (CurrentAmmoCount > 0 && HasWeapon) {
 		CanFire = false;
 		Timer = WeaponCooldownTimer;
 		UE_LOG(LogTemp, Warning, TEXT("Primary action touched"));
@@ -115,7 +115,7 @@ void ADoorProjectCharacter::ReloadWeapon() {
 	if (AmmoToGive > CurrentMaxAmmo)
 		AmmoToGive = CurrentMaxAmmo;
 
-	CurrentAmmoCount = AmmoToGive;
+	CurrentAmmoCount += AmmoToGive;
 
 	if (!InfiniteMaxAmmo) {
 		if (CurrentMaxAmmo <= 0)

@@ -133,8 +133,10 @@ public:
 	void ObtainAmmo(int amount);
 
 	UPROPERTY(BlueprintReadWrite)
+		bool HasWeapon = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int CurrentMaxAmmo = 100;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int CurrentAmmoCount = 100;
 
 	void ReloadWeapon();

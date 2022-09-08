@@ -1,5 +1,6 @@
 "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Inc\DoorProject\DoorProjectProjectile.gen.cpp"
 /I .
+/I "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Source\DoorProject\Private"
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\Engine
 /I Runtime
 /I ..\Shaders\Shared
@@ -253,6 +254,7 @@
 /I Developer\AnimationDataController\Public
 /I "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Intermediate\Build\Win64\UnrealEditor\Inc\DoorProject"
 /I "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Source"
+/I "C:\Users\dstilwell\Documents\Unreal Projects\Tantrumn\DoorProject\Source\DoorProject\Public"
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\AugmentedReality
 /I Runtime\AugmentedReality\Public
 /I ..\Intermediate\Build\Win64\UnrealEditor\Inc\MRMesh
